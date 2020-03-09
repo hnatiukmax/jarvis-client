@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+def versionMajor = 0
+def versionMinor = 0
+def versionPatch = 1
+
+def VERSION_CODE = versionMajor * 10000 + versionMinor * 1000 + versionPatch
+def VERSION_NAME = "${versionMajor}.${versionMinor}.${versionPatch}"
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        applicationId "com.bugmakers.jarvistime"
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    def appDependencies = rootProject.ext.appDependencies
+
+    /* Core */
+    implementation appDependencies.kotlinStdlib
+    implementation appDependencies.kotlinReflect
+    implementation appDependencies.kotlinxCoroutinesCore
+
+    /* UI */
+    implementation appDependencies.coreKtx
+    implementation appDependencies.fragmentKtx
+
+    implementation appDependencies.appCompat
+    implementation appDependencies.constraintLayout
+    implementation appDependencies.viewPager
+    implementation appDependencies.materialDesign
+
+    implementation appDependencies.pageIndicatorView
+    implementation appDependencies.toasty
+    implementation appDependencies.expandedLayout
+    implementation appDependencies.transitionsEverywhere
+    implementation appDependencies.lottie
+    implementation(appDependencies.glide) {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor appDependencies.glideCompiler
+
+    implementation appDependencies.rxJava
+    implementation appDependencies.rxAndroid
+
+    /* Network */
+    implementation appDependencies.retrofit2
+    implementation appDependencies.retrofit2Rx
+    implementation appDependencies.retrofit2GsonConverter
+    implementation appDependencies.okhttpLogging
+}
