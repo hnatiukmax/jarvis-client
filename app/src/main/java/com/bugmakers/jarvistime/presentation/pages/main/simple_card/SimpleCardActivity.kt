@@ -1,4 +1,4 @@
-package com.bugmakers.jarvistime.presentation.pages.main
+package com.bugmakers.jarvistime.presentation.pages.main.simple_card
 
 import android.content.Context
 import android.content.Intent
@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class SimpleCardActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -18,6 +18,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_simple_card)
     }
 }
