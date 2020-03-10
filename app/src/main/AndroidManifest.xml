@@ -12,8 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".presentation.pages.login.LogInActivity"></activity>
-        <activity android:name=".presentation.pages.main.MainActivity"></activity>
+        <activity android:name=".presentation.pages.introduction.IntroductionActivity"></activity>
+        <activity android:name=".presentation.pages.login.LogInActivity" />
         <activity
             android:name=".presentation.pages.splashscreen.SplashScreenActivity"
             android:theme="@style/AppTheme.Launcher">

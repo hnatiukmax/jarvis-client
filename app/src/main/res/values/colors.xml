@@ -11,4 +11,8 @@
     <color name="backgroundWhite">#FCFAFB</color>
     <color name="backgroundDialog">#FCFAFB</color>
 
+    <!-- Widget  -->
+    <color name="google">#E6CF4332</color>
+    <color name="facebook">#E63C66C4</color>
+
 </resources>

@@ -73,6 +73,7 @@ dependencies {
     implementation appDependencies.expandedLayout
     implementation appDependencies.transitionsEverywhere
     implementation appDependencies.lottie
+    implementation appDependencies.circleImageView
     implementation(appDependencies.glide) {
         exclude group: "com.android.support"
     }
@@ -86,4 +87,7 @@ dependencies {
     implementation appDependencies.retrofit2Rx
     implementation appDependencies.retrofit2GsonConverter
     implementation appDependencies.okhttpLogging
+    implementation appDependencies.retrofitMoshiConverter
+    kapt appDependencies.moshiKotlinCodegen
+    implementation appDependencies.moshiAdapters
 }
