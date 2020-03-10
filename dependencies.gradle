@@ -40,6 +40,9 @@ ext {
     retrofit2Rx = 'com.squareup.retrofit2:adapter-rxjava2'
     retrofit2GsonConverter = 'com.squareup.retrofit2:converter-gson'
     okhttpLogging = 'com.squareup.okhttp3:logging-interceptor'
+    retrofitMoshiConverter = 'com.squareup.retrofit2:converter-moshi'
+    moshiKotlinCodegen = 'com.squareup.moshi:moshi-kotlin-codegen'
+    moshiAdapters = 'com.squareup.moshi:moshi-adapters'
 
 
     /**
@@ -74,25 +77,28 @@ ext {
     /* Network */
     retrofit2Version = '2.3.0'
     okhttpLoggingVersion = '3.8.1'
+    retrofitMoshiConverterVersion = retrofit2Version
+    moshiKotlinCodegenVersion = '1.8.0'
+    moshiAdaptersVersion = '1.8.0'
 
     appDependencies = [
-            kotlinStdlib         : "${kotlinStdlib}:${kotlinStdlibVersion}",
-            kotlinReflect        : "${kotlinReflect}:${kotlinReflectVersion}",
-            kotlinxCoroutinesCore: "${kotlinxCoroutinesCore}:${kotlinxCoroutinesCoreVersion}",
+            kotlinStdlib          : "${kotlinStdlib}:${kotlinStdlibVersion}",
+            kotlinReflect         : "${kotlinReflect}:${kotlinReflectVersion}",
+            kotlinxCoroutinesCore : "${kotlinxCoroutinesCore}:${kotlinxCoroutinesCoreVersion}",
 
-            coreKtx              : "${coreKtx}:${coreKtxVersion}",
-            fragmentKtx          : "${fragmentKtx}:${fragmentKtxVersion}",
+            coreKtx               : "${coreKtx}:${coreKtxVersion}",
+            fragmentKtx           : "${fragmentKtx}:${fragmentKtxVersion}",
 
-            appCompat            : "${appCompat}:${appCompatVersion}",
-            materialDesign       : "${materialDesign}:${materialDesignVersion}",
-            viewPager            : "${viewPager}:${viewPagerVersion}",
-            constraintLayout     : "${constraintLayout}:${constraintLayoutVersion}",
+            appCompat             : "${appCompat}:${appCompatVersion}",
+            materialDesign        : "${materialDesign}:${materialDesignVersion}",
+            viewPager             : "${viewPager}:${viewPagerVersion}",
+            constraintLayout      : "${constraintLayout}:${constraintLayoutVersion}",
 
-            pageIndicatorView    : "${pageIndicatorView}:${pageIndicatorViewVersion}",
-            toasty               : "${toasty}:${toastyVersion}",
-            expandedLayout       : "${expandedLayout}:${expandedLayoutVersion}",
-            transitionsEverywhere: "${transitionsEverywhere}:${transitionsEverywhereVersion}",
-            lottie               : "${lottie}:${lottieVersion}",
+            pageIndicatorView     : "${pageIndicatorView}:${pageIndicatorViewVersion}",
+            toasty                : "${toasty}:${toastyVersion}",
+            expandedLayout        : "${expandedLayout}:${expandedLayoutVersion}",
+            transitionsEverywhere : "${transitionsEverywhere}:${transitionsEverywhereVersion}",
+            lottie                : "${lottie}:${lottieVersion}",
             circleImageView       : "${circleImageView}:${circleImageViewVersion}",
             glide                 : "${glide}:${glideVersion}",
             glideCompiler         : "${glideCompiler}:${glideVersion}",
@@ -103,6 +109,9 @@ ext {
             retrofit2             : "${retrofit2}:${retrofit2Version}",
             retrofit2GsonConverter: "${retrofit2GsonConverter}:${retrofit2Version}",
             retrofit2Rx           : "${retrofit2Rx}:${retrofit2Version}",
-            okhttpLogging         : "${okhttpLogging}:${okhttpLoggingVersion}"
+            okhttpLogging         : "${okhttpLogging}:${okhttpLoggingVersion}",
+            retrofitMoshiConverter: "${retrofitMoshiConverter}:${retrofitMoshiConverterVersion}",
+            moshiKotlinCodegen    : "${moshiKotlinCodegen}:${moshiKotlinCodegenVersion}",
+            moshiAdapters         : "${moshiAdapters}:${moshiAdaptersVersion}"
     ]
 }

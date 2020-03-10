@@ -12,6 +12,9 @@
 
     <dimen name="textSizeTitleToolbar">20sp</dimen>
 
+    <!-- Drawable -->
+    <dimen name="backgroundDefaultBorderRadius">5dp</dimen>
+
     <!--  Widget  -->
     <dimen name="selectableBackgroundPadding">4dp</dimen>
 
