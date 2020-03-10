@@ -14,4 +14,18 @@
         <item name="android:windowBackground">@drawable/ic_splash_screen</item>
     </style>
 
+    <!-- Widgets  -->
+
+    <style name="AppTheme.ToolbarActionButton">
+        <item name="android:maxWidth">24dp</item>
+        <item name="android:maxHeight">24dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">@dimen/selectableBackgroundPadding</item>
+    </style>
+
+    <style name="AppTheme.ToolbarTitle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/textSizeTitleToolbar</item>
+    </style>
+
 </resources>

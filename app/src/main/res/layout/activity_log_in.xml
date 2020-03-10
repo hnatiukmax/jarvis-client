@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/root"
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.bugmakers.jarvistime.presentation.pages.login.LogInActivityViewModel" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.pages.login.LogInActivity">
+        android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.bugmakers.jarvistime.presentation.view.MainToolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:leftActionIcon="@drawable/ic_back_black"/>
+
+    </FrameLayout>
 
 </layout>
