@@ -5,7 +5,9 @@
     <color name="colorAccent">#D81B60</color>
 
     <!-- Text  -->
-    <color name="white">#ffff</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="black_with_opacity_80">#CC000000</color>
 
     <!-- Background -->
     <color name="backgroundWhite">#FCFAFB</color>
