@@ -37,6 +37,7 @@ ext {
 
     /* Network */
     facebook = 'com.facebook.android:facebook-android-sdk'
+    playService = 'com.google.android.gms:play-services-auth'
 
     retrofit2 = 'com.squareup.retrofit2:retrofit'
     retrofit2Rx = 'com.squareup.retrofit2:adapter-rxjava2'
@@ -78,6 +79,7 @@ ext {
 
     /* Network */
     facebookVersion = '5.5.1'
+    playServiceVersion = '17.0.0'
 
     retrofit2Version = '2.3.0'
     okhttpLoggingVersion = '3.8.1'
@@ -111,6 +113,7 @@ ext {
             rxAndroid             : "${rxAndroid}:${rxAndroidVersion}",
 
             facebook              : "${facebook}:${facebookVersion}",
+            playService           : "${playService}:${playServiceVersion}",
 
             retrofit2             : "${retrofit2}:${retrofit2Version}",
             retrofit2GsonConverter: "${retrofit2GsonConverter}:${retrofit2Version}",

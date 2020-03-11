@@ -4,5 +4,6 @@
     <!-- Introduction   -->
     <string name="introduction_continue_with_google">Continue with Google</string>
     <string name="introduction_continue_with_facebook">Continue with Facebook</string>
+    <string name="introduction_continue_with_email">Continue with Email</string>
 
 </resources>

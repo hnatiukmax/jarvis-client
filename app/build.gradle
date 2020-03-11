@@ -84,6 +84,7 @@ dependencies {
 
     /* Network */
     implementation appDependencies.facebook
+    implementation appDependencies.playService
 
     implementation appDependencies.retrofit2
     implementation appDependencies.retrofit2Rx
