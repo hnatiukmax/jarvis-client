@@ -32,7 +32,7 @@ class SimpleCardActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_simple_card)
 
         binding.fabAddTask.setOnClickListener {
-            CreateNewTaskDialog().show(supportFragmentManager, CreateNewTaskDialog.TAG)
+            DetailTaskInfoDialog().show(supportFragmentManager, DetailTaskInfoDialog.TAG)
         }
 
         binding.mainToolbar.setLeftActionClickListener {

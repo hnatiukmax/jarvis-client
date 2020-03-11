@@ -13,6 +13,15 @@ class DetailTaskInfoDialog : DialogFragment() {
 
     private lateinit var binding: DialogDetailTaskInfoBinding
 
+    companion object {
+        const val TAG = "DetailTaskInfoDialog"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.CreateTaskDialog)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

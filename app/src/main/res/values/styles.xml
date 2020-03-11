@@ -31,8 +31,8 @@
     <!-- Dialogs -->
 
     <style name="CreateTaskDialog" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:windowMinWidthMajor">98%</item>
-        <item name="android:windowMinWidthMinor">98%</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
     </style>
 
 </resources>
