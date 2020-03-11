@@ -9,7 +9,9 @@ import androidx.lifecycle.Observer
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.data.auth.getFacebookCallback
 import com.bugmakers.jarvistime.databinding.ActivityIntroductionBinding
+import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.extensions.showToast
+import com.bugmakers.jarvistime.presentation.pages.login.LogInActivity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookAuthorizationException
@@ -40,21 +42,33 @@ class IntroductionActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_introduction)
         binding.apply {
             lifecycleOwner = this@IntroductionActivity
-            viewModel = this@IntroductionActivity.viewModel
-        }
+            viewModel = this@IntroductionActivity.viewModel.apply {
+                observeViewModel()
+            }
 
-        viewModel.apply {
-            onGoogleAuth.observe(this@IntroductionActivity, Observer {
-                startActivityForResult(signInClient.signInIntent, REQUEST_CODE_GOOGLE_SIGN_IN)
-            })
-            onFacebookAuth.observe(this@IntroductionActivity, Observer {
-                LoginManager.getInstance()
-                    .logInWithReadPermissions(this@IntroductionActivity, listOf("public_profile"))
-            })
+            continueWithEmail.setOnClickListener {
+                goTo(LogInActivity::class.java)
+            }
         }
 
         initGoogleClient()
         initFacebookClient()
+
+        viewModel.observeViewModel()
+    }
+
+    private fun IntroductionActivityViewModel.observeViewModel() {
+        onEmailAuth.observe(this@IntroductionActivity, Observer {
+            goTo(LogInActivity::class.java)
+        })
+        onGoogleAuth.observe(this@IntroductionActivity, Observer {
+
+            startActivityForResult(signInClient.signInIntent, REQUEST_CODE_GOOGLE_SIGN_IN)
+        })
+        onFacebookAuth.observe(this@IntroductionActivity, Observer {
+            LoginManager.getInstance()
+                .logInWithReadPermissions(this@IntroductionActivity, listOf("public_profile"))
+        })
     }
 
     private fun initGoogleClient() {
@@ -111,5 +125,14 @@ class IntroductionActivity : AppCompatActivity() {
             showToast("Error Google")
             //startErrorDialog(AppException.SomethingBadHappenedException(cause = e))
         }
+    }
+
+    private fun signOutFromSocialNetwork() {
+        AccessToken.getCurrentAccessToken()?.let {
+            if (!it.isExpired) {
+                LoginManager.getInstance().logOut()
+            }
+        }
+        signInClient.signOut()
     }
 }

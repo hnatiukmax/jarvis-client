@@ -8,12 +8,13 @@ internal class IntroductionActivityViewModel : BaseViewModel() {
 
     val onFacebookAuth = ActionLiveData<Unit>()
     val onGoogleAuth = ActionLiveData<Unit>()
+    val onEmailAuth = ActionLiveData<Unit>()
 
     fun onSocialAuthenticationClick(type : AuthenticationType) {
         when (type) {
             AuthenticationType.FACEBOOK -> onFacebookAuth.call()
             AuthenticationType.GOOGLE -> onGoogleAuth.call()
-
+            AuthenticationType.EMAIL -> onEmailAuth.call()
         }
     }
 }
