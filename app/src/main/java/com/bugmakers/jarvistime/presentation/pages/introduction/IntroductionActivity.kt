@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.data.auth.getFacebookCallback
 import com.bugmakers.jarvistime.databinding.ActivityIntroductionBinding
+import com.bugmakers.jarvistime.presentation.application.JarvisApplication
 import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.extensions.showToast
 import com.bugmakers.jarvistime.presentation.pages.login.LogInActivity
@@ -23,11 +24,19 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.generic.instance
 
-class IntroductionActivity : AppCompatActivity() {
+class IntroductionActivity : AppCompatActivity(), KodeinAware {
+
+    override val kodein: Kodein by lazy {
+        (application as JarvisApplication).kodein
+    }
+
+    private val viewModel by instance<IntroductionActivityViewModel>()
 
     private lateinit var binding: ActivityIntroductionBinding
-    private val viewModel = IntroductionActivityViewModel()
 
     private lateinit var signInClient: GoogleSignInClient
     private lateinit var facebookCallbackManager: CallbackManager
@@ -62,7 +71,6 @@ class IntroductionActivity : AppCompatActivity() {
             goTo(LogInActivity::class.java)
         })
         onGoogleAuth.observe(this@IntroductionActivity, Observer {
-
             startActivityForResult(signInClient.signInIntent, REQUEST_CODE_GOOGLE_SIGN_IN)
         })
         onFacebookAuth.observe(this@IntroductionActivity, Observer {
@@ -85,7 +93,10 @@ class IntroductionActivity : AppCompatActivity() {
         facebookCallbackManager = CallbackManager.Factory.create()
         val callback = getFacebookCallback<LoginResult>(
             doOnSuccess = {
-                showToast("Success Login")
+                val accessToken = AccessToken.getCurrentAccessToken()
+                if (accessToken != null && !accessToken.isExpired) {
+                    showToast("Success Login")
+                }
             },
             doOnError = {
                 if (it is FacebookAuthorizationException) {
@@ -119,7 +130,8 @@ class IntroductionActivity : AppCompatActivity() {
             account?.idToken?.let {
                 showToast("Success Google")
                 //viewModel.onSocialNetworkTokenFetched(it, AuthenticationType.SocialNetwork.GOOGLE)
-            } ?: showToast("Error Google")
+            } ?:
+            showToast("Error Google")
 
         } catch (e: ApiException) {
             showToast("Error Google")

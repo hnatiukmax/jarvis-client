@@ -5,14 +5,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivityLogInBinding
+import com.bugmakers.jarvistime.presentation.application.JarvisApplication
 import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.extensions.makeToolbarAsActionBar
 import com.bugmakers.jarvistime.presentation.pages.register.RegisterActivity
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.generic.instance
 
-class LogInActivity : AppCompatActivity() {
+class LogInActivity : AppCompatActivity(), KodeinAware {
+
+    override val kodein: Kodein by lazy {
+        (application as JarvisApplication).kodein
+    }
+
+    private val viewModel by instance<LogInActivityViewModel>()
 
     private lateinit var binding: ActivityLogInBinding
-    private val viewModel = LogInActivityViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

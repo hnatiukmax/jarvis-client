@@ -72,7 +72,7 @@
                         style="@style/AppTheme.TextInputLayout"
                         android:layout_marginStart="@dimen/defaultFlowAuthHorizontalMargin"
                         android:layout_marginEnd="@dimen/defaultFlowAuthHorizontalMargin"
-                        app:hintEnabled="'false"
+                        app:hintEnabled="false"
                         app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
