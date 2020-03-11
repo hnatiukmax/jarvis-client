@@ -12,6 +12,7 @@
     <!-- Background -->
     <color name="backgroundWhite">#FCFAFB</color>
     <color name="backgroundDialog">#FCFAFB</color>
+    <color name="background_divider_color">#FFBBBBBB</color>
 
     <!-- Widget  -->
     <color name="google">#E6CF4332</color>
