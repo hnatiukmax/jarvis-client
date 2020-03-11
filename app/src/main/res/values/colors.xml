@@ -12,7 +12,9 @@
     <color name="backgroundDialog">#FCFAFB</color>
 
     <!-- Widget  -->
-    <color name="google">#E6CF4332</color>
-    <color name="facebook">#E63C66C4</color>
+    <color name="backgroundButtonGoogle">#E6CF4332</color>
+    <color name="backgroundIconGoogle">#A5241B</color>
+    <color name="backgroundButtonFacebook">#E63560B8</color>
+    <color name="backgroundIconFacebook">#E60F3991</color>
 
 </resources>

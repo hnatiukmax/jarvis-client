@@ -83,6 +83,8 @@ dependencies {
     implementation appDependencies.rxAndroid
 
     /* Network */
+    implementation appDependencies.facebook
+
     implementation appDependencies.retrofit2
     implementation appDependencies.retrofit2Rx
     implementation appDependencies.retrofit2GsonConverter

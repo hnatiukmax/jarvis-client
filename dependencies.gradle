@@ -36,6 +36,8 @@ ext {
     rxAndroid = 'io.reactivex.rxjava2:rxandroid'
 
     /* Network */
+    facebook = 'com.facebook.android:facebook-android-sdk'
+
     retrofit2 = 'com.squareup.retrofit2:retrofit'
     retrofit2Rx = 'com.squareup.retrofit2:adapter-rxjava2'
     retrofit2GsonConverter = 'com.squareup.retrofit2:converter-gson'
@@ -75,6 +77,8 @@ ext {
     rxAndroidVersion = '2.0.1'
 
     /* Network */
+    facebookVersion = '5.5.1'
+
     retrofit2Version = '2.3.0'
     okhttpLoggingVersion = '3.8.1'
     retrofitMoshiConverterVersion = retrofit2Version
@@ -105,6 +109,8 @@ ext {
 
             rxJava                : "${rxJava}:${rxJavaVersion}",
             rxAndroid             : "${rxAndroid}:${rxAndroidVersion}",
+
+            facebook              : "${facebook}:${facebookVersion}",
 
             retrofit2             : "${retrofit2}:${retrofit2Version}",
             retrofit2GsonConverter: "${retrofit2GsonConverter}:${retrofit2Version}",
