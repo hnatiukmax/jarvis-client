@@ -35,7 +35,14 @@ ext {
     rxJava = 'io.reactivex.rxjava2:rxjava'
     rxAndroid = 'io.reactivex.rxjava2:rxandroid'
 
+    kodein = 'org.kodein.di:kodein-di-generic-jvm'
+    kodeinConf = 'org.kodein.di:kodein-di-conf-jvm'
+    kodeinAndroid = 'org.kodein.di:kodein-di-framework-android-x'
+
     /* Network */
+    facebook = 'com.facebook.android:facebook-android-sdk'
+    playService = 'com.google.android.gms:play-services-auth'
+
     retrofit2 = 'com.squareup.retrofit2:retrofit'
     retrofit2Rx = 'com.squareup.retrofit2:adapter-rxjava2'
     retrofit2GsonConverter = 'com.squareup.retrofit2:converter-gson'
@@ -74,7 +81,12 @@ ext {
     rxJavaVersion = '2.1.5'
     rxAndroidVersion = '2.0.1'
 
+    kodeinVersion = '6.3.2'
+
     /* Network */
+    facebookVersion = '5.5.1'
+    playServiceVersion = '17.0.0'
+
     retrofit2Version = '2.3.0'
     okhttpLoggingVersion = '3.8.1'
     retrofitMoshiConverterVersion = retrofit2Version
@@ -105,6 +117,13 @@ ext {
 
             rxJava                : "${rxJava}:${rxJavaVersion}",
             rxAndroid             : "${rxAndroid}:${rxAndroidVersion}",
+
+            kodein                : "${kodein}:${kodeinVersion}",
+            kodeinConf            : "${kodeinConf}:${kodeinVersion}",
+            kodeinAndroid         : "${kodeinAndroid}:${kodeinVersion}",
+
+            facebook              : "${facebook}:${facebookVersion}",
+            playService           : "${playService}:${playServiceVersion}",
 
             retrofit2             : "${retrofit2}:${retrofit2Version}",
             retrofit2GsonConverter: "${retrofit2GsonConverter}:${retrofit2Version}",

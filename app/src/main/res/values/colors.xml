@@ -4,9 +4,16 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#E63946</color>
 
-    <!-- Text  -->
-    <color name="white">#FFFFFF</color>
+    <color name="white">#ffff</color>
     <color name="black">#000000</color>
+    <color name="red">#F96060</color>
+
+    <!-- Text  -->
+    <color name="textGray">#9B9B9B</color>
+    <color name="textBlackTitle">#010101</color>
+    <color name="textBlack">#313131</color>
+    <color name="textWhite">@color/white</color>
+    <color name="textHint">#C6C6C6</color>
     <color name="black_with_opacity_80">#CC000000</color>
     <color name="grey">#80000000</color>
 
@@ -16,7 +23,10 @@
     <color name="background_divider_color">#FFBBBBBB</color>
 
     <!-- Widget  -->
-    <color name="google">#E6CF4332</color>
-    <color name="facebook">#E63C66C4</color>
+    <color name="editTextUnderlineNormal">#EDEDED</color>>
+    <color name="backgroundButtonGoogle">#DE5246</color>
+    <color name="backgroundIconGoogle">#A5241B</color>
+    <color name="backgroundButtonFacebook">#E63560B8</color>
+    <color name="backgroundIconFacebook">#E60F3991</color>
 
 </resources>

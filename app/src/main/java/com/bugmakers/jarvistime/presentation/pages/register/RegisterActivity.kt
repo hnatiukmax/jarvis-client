@@ -1,34 +1,34 @@
-package com.bugmakers.jarvistime.presentation.pages.login
+package com.bugmakers.jarvistime.presentation.pages.register
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.bugmakers.jarvistime.R
-import com.bugmakers.jarvistime.databinding.ActivityLogInBinding
+import com.bugmakers.jarvistime.databinding.ActivityRegisterBinding
 import com.bugmakers.jarvistime.presentation.application.JarvisApplication
 import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.extensions.makeToolbarAsActionBar
-import com.bugmakers.jarvistime.presentation.pages.register.RegisterActivity
+import com.bugmakers.jarvistime.presentation.pages.login.LogInActivity
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
 
-class LogInActivity : AppCompatActivity(), KodeinAware {
+class RegisterActivity : AppCompatActivity(), KodeinAware {
 
     override val kodein: Kodein by lazy {
         (application as JarvisApplication).kodein
     }
 
-    private val viewModel by instance<LogInActivityViewModel>()
+    private val viewModel by instance<RegisterActivityViewModel>()
 
-    private lateinit var binding: ActivityLogInBinding
+    private lateinit var binding: ActivityRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_log_in)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_register)
         binding.apply {
-            lifecycleOwner = this@LogInActivity
-            viewModel = this@LogInActivity.viewModel
+            lifecycleOwner = this@RegisterActivity
+            viewModel = this@RegisterActivity.viewModel
 
             init()
         }
@@ -36,16 +36,17 @@ class LogInActivity : AppCompatActivity(), KodeinAware {
         viewModel.observeViewModel()
     }
 
-    private fun ActivityLogInBinding.init() {
+    private fun ActivityRegisterBinding.init() {
         makeToolbarAsActionBar(toolbar)
         toolbar.setLeftActionAsBackButton(true)
 
-        noAccount.setOnClickListener {
-            goTo(RegisterActivity::class.java)
+        haveAnAccount.setOnClickListener {
+            goTo(LogInActivity::class.java)
+            finish()
         }
     }
 
-    private fun LogInActivityViewModel.observeViewModel() {
+    private fun RegisterActivityViewModel.observeViewModel() {
 
     }
 }

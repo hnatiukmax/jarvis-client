@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <font
+        android:font="@font/avenir_next_rounded_demi"
+        android:fontStyle="normal"
+        android:fontWeight="300"
+        app:font="@font/avenir_next_rounded_demi"
+        app:fontStyle="normal"
+        app:fontWeight="300"
+        tools:targetApi="o" />
+
+    <font
+        android:font="@font/avenir_next_rounded_demi_italic"
+        android:fontStyle="italic"
+        android:fontWeight="300"
+        app:font="@font/avenir_next_rounded_demi_italic"
+        app:fontStyle="italic"
+        app:fontWeight="300"
+        tools:targetApi="o" />
+
+</font-family>
