@@ -4,6 +4,6 @@
 
     <corners android:radius="@dimen/backgroundDefaultBorderRadius" />
 
-    <solid android:color="@color/backgroundButtonGoogle" />
+    <solid android:color="@color/backgroundIconFacebook" />
 
 </shape>

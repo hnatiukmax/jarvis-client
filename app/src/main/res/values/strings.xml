@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">jarvis-time</string>
+
+    <!-- Introduction   -->
+    <string name="introduction_continue_with_google">Continue with Google</string>
+    <string name="introduction_continue_with_facebook">Continue with Facebook</string>
+    <string name="introduction_continue_with_email">Continue with Email</string>
+
+    <!-- Log In  -->
+    <string name="log_in_welcome_back">Welcome Back</string>
+    <string name="log_in_log_in_continue">Log in to continue</string>
+    <string name="log_in_email">Email</string>
+    <string name="log_in_enter_your_email">Enter your email</string>
+    <string name="log_in_password">Password</string>
+    <string name="log_in_enter_your_password">Enter your password</string>
+    <string name="log_in_">Log In</string>
+    <string name="log_in_no_account">No account? Register.</string>
+
+    <!-- Register   -->
+    <string name="register_new_account">New account</string>
+    <string name="register_sign_up_to_continue">Sign up to continue</string>
+    <string name="register_email">@string/log_in_email</string>
+    <string name="register_password">@string/log_in_password</string>
+    <string name="register_confirm_password">Confirm password</string>
+    <string name="register_confirm_your_password">Confirm your password</string>
+    <string name="register_already_have">Already have an account?</string>
+    <string name="register_create_new_account">Create new account</string>
+
 </resources>

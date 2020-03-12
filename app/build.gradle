@@ -36,6 +36,19 @@ android {
         }
     }
 
+    flavorDimensions "productFlavor"
+    productFlavors {
+        dev {
+            dimension 'productFlavor'
+            applicationId "com.bugmakers.jarvistime"
+            versionCode VERSION_CODE
+            versionName android.defaultConfig.versionName
+            buildConfigField "String", "DATABASE_PREFIX", '"jarvis_db"'
+            buildConfigField "String", "API_URL", '""'
+            buildConfigField "String", "API_PREFFIX", '"/"'
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -82,7 +95,14 @@ dependencies {
     implementation appDependencies.rxJava
     implementation appDependencies.rxAndroid
 
+    implementation appDependencies.kodein
+    implementation appDependencies.kodeinConf
+    implementation appDependencies.kodeinAndroid
+
     /* Network */
+    implementation appDependencies.facebook
+    implementation appDependencies.playService
+
     implementation appDependencies.retrofit2
     implementation appDependencies.retrofit2Rx
     implementation appDependencies.retrofit2GsonConverter

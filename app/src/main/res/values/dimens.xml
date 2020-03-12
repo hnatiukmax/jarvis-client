@@ -6,16 +6,26 @@
     <dimen name="textSizeMedium">16sp</dimen>
     <dimen name="textSizeLarge">20sp</dimen>
 
+    <dimen name="textSizeTitleToolbar">20sp</dimen>
+    <dimen name="textAuthFlowTitle">30sp</dimen>
+    
     <!-- Margin & Padding -->
     <dimen name="defaultMarginLarge">16dp</dimen>
     <dimen name="defaultMarginSmall">8dp</dimen>
 
-    <dimen name="textSizeTitleToolbar">20sp</dimen>
+    <dimen name="defaultFlowAuthHorizontalMargin">24dp</dimen>
+    <dimen name="defaultFlowAuthVerticalMarginSmall">24dp</dimen>
+    <dimen name="defaultFlowAuthVerticalMarginMedium">32dp</dimen>
+    <dimen name="defaultFlowAuthVerticalMarginLarge">48dp</dimen>
+
+    <dimen name="noBackgroundButtonPaddingHorizontal">20dp</dimen>
+    <dimen name="noBackgroundButtonPaddingVertical">8dp</dimen>
 
     <!-- Drawable -->
     <dimen name="backgroundDefaultBorderRadius">5dp</dimen>
 
     <!--  Widget  -->
     <dimen name="selectableBackgroundPadding">4dp</dimen>
+    <dimen name="defaultButtonHeight">42dp</dimen>
 
 </resources>
