@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="introduction_item_logo_ids">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </array>
+
+    <array name="introduction_first_label_ids">
+        <item>Title 1</item>
+        <item>Title 2</item>
+        <item>Title 3</item>
+    </array>
+
+    <array name="introduction_second_label_ids">
+        <item>Label 1</item>
+        <item>Label 2</item>
+        <item>Label 3</item>
+    </array>
+
+</resources>
