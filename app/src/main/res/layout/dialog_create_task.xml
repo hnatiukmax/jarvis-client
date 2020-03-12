@@ -14,30 +14,84 @@
             android:id="@+id/header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="@font/avenir_next_rounded_medium"
+            android:layout_marginStart="8dp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Create New Task"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Create new task"/>
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="@color/background_divider_color"
-            app:layout_constraintBottom_toBottomOf="@+id/header"
-            app:layout_constraintStart_toEndOf="@+id/header"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="4"
-            app:layout_constraintTop_toBottomOf="@+id/header"
-            app:layout_constraintStart_toStartOf="@+id/header"/>
+            android:src="@drawable/ic_close"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/red_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/select_red_background"
+            android:drawableStart="@drawable/ic_attention"
+            android:drawablePadding="12dp"
+            android:fontFamily="@font/ff_avenir_next_rounded"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingTop="18dp"
+            android:paddingEnd="28dp"
+            android:paddingBottom="18dp"
+            android:text="Do first."
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/header"
+            app:layout_constraintTop_toBottomOf="@+id/header" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/blue_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_blue_background"
+            android:drawableStart="@drawable/ic_fire"
+            android:drawablePadding="12dp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="24dp"
+            android:paddingStart="16dp"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/ff_avenir_next_rounded"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/red_button"
+            app:layout_constraintTop_toTopOf="@+id/red_button"
+            app:layout_constraintBottom_toBottomOf="@id/red_button"
+            android:text="Do later."/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/purple_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select_purple_background"
+            android:drawableStart="@drawable/ic_attention"
+            android:drawablePadding="12dp"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingEnd="24dp"
+            android:paddingStart="16dp"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/ff_avenir_next_rounded"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/blue_button"
+            app:layout_constraintEnd_toEndOf="@id/blue_button"
+            app:layout_constraintTop_toBottomOf="@id/blue_button"
+            android:text="Do later."/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
