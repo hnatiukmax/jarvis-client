@@ -13,7 +13,7 @@ internal class LocalTaskDataSource : TaskDataSource<Task> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun updatetask(taskId: Int, body: Task): Nothing {
+    override fun updateTask(taskId: Int, body: Task): Nothing {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

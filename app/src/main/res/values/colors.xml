@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#E63946</color>
+    <color name="colorAccent">@color/editTextUnderlineNormal</color>
 
     <color name="white">#ffff</color>
     <color name="black">#000000</color>
@@ -23,10 +23,13 @@
     <color name="background_divider_color">#FFBBBBBB</color>
 
     <!-- Widget  -->
-    <color name="editTextUnderlineNormal">#EDEDED</color>>
+    <color name="editTextUnderlineNormal">#EDEDED</color>
+    <color name="editTextErrorUnderlineColor">#F24C4C</color>
+    <color name="editTextUnderlineColor">#E9E3E5</color>
     <color name="backgroundButtonGoogle">#DE5246</color>
     <color name="backgroundIconGoogle">#A5241B</color>
     <color name="backgroundButtonFacebook">#E63560B8</color>
     <color name="backgroundIconFacebook">#E60F3991</color>
+    <color name="backgroundProgressView">#80000000</color>
 
 </resources>

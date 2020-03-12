@@ -3,12 +3,15 @@ package com.bugmakers.jarvistime.presentation.pages.register
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivityRegisterBinding
 import com.bugmakers.jarvistime.presentation.application.JarvisApplication
 import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.extensions.makeToolbarAsActionBar
 import com.bugmakers.jarvistime.presentation.pages.login.LogInActivity
+import com.bugmakers.jarvistime.presentation.pages.main.MainActivity
+import es.dmoral.toasty.Toasty
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
@@ -47,6 +50,17 @@ class RegisterActivity : AppCompatActivity(), KodeinAware {
     }
 
     private fun RegisterActivityViewModel.observeViewModel() {
+        onRegister.observe(this@RegisterActivity, Observer {
+            goTo(MainActivity::class.java)
+            finish()
+        })
 
+        onOpenMessageDialog.observe(this@RegisterActivity, Observer {
+            if (it.second) {
+                Toasty.warning(this@RegisterActivity, it.first).show()
+            } else {
+                Toasty.info(this@RegisterActivity, it.first).show()
+            }
+        })
     }
 }

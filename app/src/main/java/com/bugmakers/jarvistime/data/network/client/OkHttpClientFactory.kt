@@ -6,12 +6,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
 import okhttp3.logging.HttpLoggingInterceptor.Level.*
 
-internal fun getClient(requestAuthenticator: AuthenticationInterceptor): OkHttpClient {
+internal fun getClient(): OkHttpClient {
     val loggingInterceptor = HttpLoggingInterceptor()
     loggingInterceptor.level =
         getLogLevel()
     return OkHttpClient.Builder()
-        .addInterceptor(requestAuthenticator)
         .addInterceptor(loggingInterceptor)
         .connectTimeout(3, TimeUnit.MINUTES)
         .readTimeout(3, TimeUnit.MINUTES)

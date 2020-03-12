@@ -21,7 +21,7 @@ class SplashScreenActivity : AppCompatActivity(), KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        goTo(MainActivity::class.java)
+        goTo(IntroductionActivity::class.java)
         finish()
     }
 }

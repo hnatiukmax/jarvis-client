@@ -5,7 +5,10 @@ import com.bugmakers.jarvistime.BuildConfig
 import com.bugmakers.jarvistime.data.network.client.AuthenticationInterceptor
 import com.bugmakers.jarvistime.data.network.client.Authenticator
 import com.bugmakers.jarvistime.data.network.client.RestClient
+import com.bugmakers.jarvistime.data.network.client.authService
 import com.bugmakers.jarvistime.data.network.mapper.*
+import com.bugmakers.jarvistime.data.repository.AuthRepository
+import com.bugmakers.jarvistime.data.service.AuthService
 import com.bugmakers.jarvistime.presentation.pages.introduction.IntroductionActivityViewModel
 import com.bugmakers.jarvistime.presentation.pages.login.LogInActivityViewModel
 import com.bugmakers.jarvistime.presentation.pages.register.RegisterActivityViewModel
@@ -30,10 +33,11 @@ class ServiceLocator(
         addModule(applicationIdentifiersDependencies())
         addModule(viewModelDependencies())
         addModule(networkDependencies())
+        addModule(repositoryDependencies())
     }
 
     private fun applicationIdentifiersDependencies() = Kodein.Module("identifiersModule") {
-        constant(AppConstant.BASE_URL) with BuildConfig.API_URL + BuildConfig.API_PREFFIX
+        constant(AppConstant.BASE_URL) with BuildConfig.API_URL
         constant(AppConstant.DATABASE_PREFIX) with ""
     }
 
@@ -45,10 +49,10 @@ class ServiceLocator(
             IntroductionActivityViewModel()
         }
         bind<LogInActivityViewModel>() with provider {
-            LogInActivityViewModel()
+            LogInActivityViewModel(instance())
         }
         bind<RegisterActivityViewModel>() with provider {
-            RegisterActivityViewModel()
+            RegisterActivityViewModel(instance())
         }
     }
 
@@ -65,6 +69,12 @@ class ServiceLocator(
                 instance()
             )
         }
+
+        bind<AuthService>() with singleton { instance<RestClient>().authService }
+    }
+
+    private fun repositoryDependencies() = Kodein.Module("repositoryDependencies") {
+        bind<AuthRepository>() with provider { AuthRepository(instance()) }
     }
 
     private fun addModule(activityModules: Kodein.Module) {

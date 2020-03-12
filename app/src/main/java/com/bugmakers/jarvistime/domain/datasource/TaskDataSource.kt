@@ -4,9 +4,9 @@ internal interface TaskDataSource<T> {
 
     fun <R> getTasks() : R
 
-    fun createTask(body : T) : Nothing
+    fun createTask(body : T)
 
-    fun updatetask(taskId : Int, body : T) : Nothing
+    fun updateTask(taskId : Int, body : T)
 
-    fun deleteTask(taskId : Int) : Nothing
+    fun deleteTask(taskId : Int)
 }

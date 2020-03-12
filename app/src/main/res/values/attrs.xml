@@ -10,4 +10,9 @@
         <attr name="rightActionIcon" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="ProgressView">
+        <attr name="background" format="reference" />
+        <attr name="progressViewPath" format="string" />
+    </declare-styleable>
+
 </resources>
