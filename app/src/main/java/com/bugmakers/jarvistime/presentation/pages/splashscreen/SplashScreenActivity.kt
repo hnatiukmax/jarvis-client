@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bugmakers.jarvistime.presentation.application.JarvisApplication
 import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.pages.introduction.IntroductionActivity
+import com.bugmakers.jarvistime.presentation.pages.main.MainActivity
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
@@ -20,7 +21,7 @@ class SplashScreenActivity : AppCompatActivity(), KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        goTo(IntroductionActivity::class.java)
+        goTo(MainActivity::class.java)
         finish()
     }
 }

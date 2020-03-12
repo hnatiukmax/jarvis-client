@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             binding.dlMain.openDrawer(GravityCompat.START)
         }
         binding.redCard.setOnClickListener(View.OnClickListener {
-
+            goTo(SimpleCardActivity::class.java)
         })
         binding.blueCard.setOnClickListener(View.OnClickListener {
             goTo(SimpleCardActivity::class.java)
