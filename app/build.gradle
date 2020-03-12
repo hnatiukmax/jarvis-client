@@ -44,7 +44,7 @@ android {
             versionCode VERSION_CODE
             versionName android.defaultConfig.versionName
             buildConfigField "String", "DATABASE_PREFIX", '"jarvis_db"'
-            buildConfigField "String", "API_URL", '""'
+            buildConfigField "String", "API_URL", '"https://floating-forest-61726.herokuapp.com"'
             buildConfigField "String", "API_PREFFIX", '"/"'
         }
     }

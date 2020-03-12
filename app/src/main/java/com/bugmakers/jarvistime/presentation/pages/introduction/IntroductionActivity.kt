@@ -61,7 +61,10 @@ class IntroductionActivity : AppCompatActivity(), KodeinAware {
             }
 
             continueWithEmail.setOnClickListener {
-                goTo(LogInActivity::class.java)
+                LoginManager.getInstance().apply {
+                    logOut()
+                }
+//                goTo(LogInActivity::class.java)
             }
         }
 

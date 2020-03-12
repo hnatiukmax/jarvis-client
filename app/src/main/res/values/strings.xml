@@ -25,5 +25,9 @@
     <string name="register_confirm_your_password">Confirm your password</string>
     <string name="register_already_have">Already have an account?</string>
     <string name="register_create_new_account">Create new account</string>
+    <string name="type_task_do_first">DO_FIRST</string>
+    <string name="type_task_do_later">DO_LATER</string>
+    <string name="type_task_do_by_others">DO_BY_OTHERS</string>
+    <string name="type_task_do_not_do">DO_NOT_DO</string>
 
 </resources>

@@ -8,8 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivitySimpleCardBinding
-import com.bugmakers.jarvistime.domain.entity.TypeTask
-import java.lang.IllegalArgumentException
+import com.bugmakers.jarvistime.domain.entity.TaskType
 
 class SimpleCardActivity : AppCompatActivity() {
 
@@ -22,7 +21,7 @@ class SimpleCardActivity : AppCompatActivity() {
     companion object {
         private const val ARG_TYPE_TASK = "ARG_TYPE_TASK"
 
-        fun getIntent(context : Context, type : TypeTask) = Intent(context, this::class.java).apply {
+        fun getIntent(context : Context, type : TaskType) = Intent(context, this::class.java).apply {
             bundleOf(ARG_TYPE_TASK to type)
         }
     }
