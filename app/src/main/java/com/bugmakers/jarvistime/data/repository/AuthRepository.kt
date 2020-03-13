@@ -11,34 +11,19 @@ internal class AuthRepository(
 ) {
 
     fun login(username: String, password: String): Completable {
-        return authService.login(
-            UserRequestBody(
-                username = username,
-                password = password
-            )
-        )
+        return authService.login(UserRequestBody(username, password))
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun register(username: String, password: String): Completable {
-        return authService.register(
-            UserRequestBody(
-                username = username,
-                password = password
-            )
-        )
+        return authService.register(UserRequestBody(username, password))
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun registerViaSocial(username: String, password: String): Completable {
-        return authService.registerViaSocial(
-            UserRequestBody(
-                username = username,
-                password = password
-            )
-        )
+        return authService.registerViaSocial(UserRequestBody(username, password))
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }

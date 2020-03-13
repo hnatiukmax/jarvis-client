@@ -19,24 +19,26 @@ internal class RegisterActivityViewModel(
 
     @SuppressLint("CheckResult")
     fun onRegisterClick() {
-        if (isFieldsValid()) {
-            authRepository.register(username.value ?: "", password.value ?: "")
-                .doFinally { isProgressVisible.value = false }
-                .subscribeWith(getCompletableObserver(
-                    doOnComplete = {
-                        onRegister.call()
-                    },
-                    doOnError = {
-                        onOpenMessageDialog.value = Pair("Cannot access", false)
-                    },
-                    doOnSubscribe = {
-                        isProgressVisible.value = true
-                    }
-                ))
+        if (!isFieldsValid()) {
+            return
         }
+
+        authRepository.register(username.value ?: "", password.value ?: "")
+            .doFinally { isProgressVisible.value = false }
+            .subscribeWith(getCompletableObserver(
+                doOnComplete = {
+                    onRegister.call()
+                },
+                doOnError = {
+                    onOpenMessageDialog.value = Pair("Cannot access", false)
+                },
+                doOnSubscribe = {
+                    isProgressVisible.value = true
+                }
+            ))
     }
 
-    private fun isFieldsValid() : Boolean {
+    private fun isFieldsValid(): Boolean {
         return if (!username.value.isNullOrEmpty() && !password.value.isNullOrEmpty() && password.value == confirmPassword.value) {
             true
         } else {

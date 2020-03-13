@@ -1,26 +1,19 @@
 package com.bugmakers.jarvistime.presentation.pages.login
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivityLogInBinding
-import com.bugmakers.jarvistime.presentation.application.JarvisApplication
+import com.bugmakers.jarvistime.presentation.base.BaseActivity
 import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.extensions.makeToolbarAsActionBar
 import com.bugmakers.jarvistime.presentation.pages.main.MainActivity
 import com.bugmakers.jarvistime.presentation.pages.register.RegisterActivity
 import es.dmoral.toasty.Toasty
-import org.kodein.di.Kodein
-import org.kodein.di.KodeinAware
 import org.kodein.di.generic.instance
 
-class LogInActivity : AppCompatActivity(), KodeinAware {
-
-    override val kodein: Kodein by lazy {
-        (application as JarvisApplication).kodein
-    }
+class LogInActivity : BaseActivity() {
 
     private val viewModel by instance<LogInActivityViewModel>()
 

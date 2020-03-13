@@ -2,13 +2,11 @@ package com.bugmakers.jarvistime.presentation.di
 
 import android.app.Application
 import com.bugmakers.jarvistime.BuildConfig
-import com.bugmakers.jarvistime.data.network.client.AuthenticationInterceptor
-import com.bugmakers.jarvistime.data.network.client.Authenticator
-import com.bugmakers.jarvistime.data.network.client.RestClient
-import com.bugmakers.jarvistime.data.network.client.authService
+import com.bugmakers.jarvistime.data.network.client.*
 import com.bugmakers.jarvistime.data.network.mapper.*
 import com.bugmakers.jarvistime.data.repository.AuthRepository
 import com.bugmakers.jarvistime.data.service.AuthService
+import com.bugmakers.jarvistime.data.service.TaskService
 import com.bugmakers.jarvistime.presentation.pages.introduction.IntroductionActivityViewModel
 import com.bugmakers.jarvistime.presentation.pages.login.LogInActivityViewModel
 import com.bugmakers.jarvistime.presentation.pages.register.RegisterActivityViewModel
@@ -42,18 +40,10 @@ class ServiceLocator(
     }
 
     private fun viewModelDependencies() = Kodein.Module("viewModelDependencies") {
-        bind<SplashScreenViewModel>() with provider {
-            SplashScreenViewModel()
-        }
-        bind<IntroductionActivityViewModel>() with provider {
-            IntroductionActivityViewModel()
-        }
-        bind<LogInActivityViewModel>() with provider {
-            LogInActivityViewModel(instance())
-        }
-        bind<RegisterActivityViewModel>() with provider {
-            RegisterActivityViewModel(instance())
-        }
+        bind<SplashScreenViewModel>() with provider { SplashScreenViewModel() }
+        bind<IntroductionActivityViewModel>() with provider { IntroductionActivityViewModel(instance()) }
+        bind<LogInActivityViewModel>() with provider { LogInActivityViewModel(instance()) }
+        bind<RegisterActivityViewModel>() with provider { RegisterActivityViewModel(instance()) }
     }
 
     private fun networkDependencies() = Kodein.Module("networkDependencies") {
@@ -63,14 +53,11 @@ class ServiceLocator(
         bind<Deserializer>() with singleton { MoshiDesirializer(instance()) }
         bind<Serializer>() with provider { MoshiSerializer(instance()) }
         bind<RestClient>() with singleton {
-            RestClient(
-                instance(AppConstant.BASE_URL),
-                instance(),
-                instance()
-            )
+            RestClient(instance(AppConstant.BASE_URL), instance(), instance())
         }
 
         bind<AuthService>() with singleton { instance<RestClient>().authService }
+        bind<TaskService>() with singleton { instance<RestClient>().taskService }
     }
 
     private fun repositoryDependencies() = Kodein.Module("repositoryDependencies") {
