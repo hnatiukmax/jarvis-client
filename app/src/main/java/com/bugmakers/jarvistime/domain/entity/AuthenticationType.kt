@@ -1,7 +1,7 @@
 package com.bugmakers.jarvistime.domain.entity
 
-enum class AuthenticationType {
-    EMAIL,
-    GOOGLE,
-    FACEBOOK
+enum class AuthenticationType(val provider : String) {
+    GOOGLE("google"),
+    FACEBOOK("facebook"),
+    EMAIL("email")
 }

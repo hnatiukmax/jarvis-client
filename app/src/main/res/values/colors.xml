@@ -6,7 +6,7 @@
 
     <color name="white">#ffff</color>
     <color name="black">#000000</color>
-    <color name="red">#F96060</color>
+    <color name="red">#E6E55757</color>
 
     <!-- Text  -->
     <color name="textGray">#9B9B9B</color>
@@ -16,6 +16,8 @@
     <color name="textHint">#C6C6C6</color>
     <color name="black_with_opacity_80">#CC000000</color>
     <color name="grey">#80000000</color>
+    <color name="textMain">#A6CA280A</color>
+    <color name="textMainDisabled">@android:color/tertiary_text_dark</color>
 
     <!-- Background -->
     <color name="backgroundWhite">#FCFAFB</color>
@@ -31,5 +33,12 @@
     <color name="backgroundButtonFacebook">#E63560B8</color>
     <color name="backgroundIconFacebook">#E60F3991</color>
     <color name="backgroundProgressView">#80000000</color>
+
+    <color name="mainButton">#66F48282</color>
+    <color name="mainButtonBorder">#B3E55757</color>
+
+    <color name="mainButtonDisabled">#33C2C0C0</color>
+    <color name="mainButtonBorderDisable">#B3686868</color>
+
 
 </resources>

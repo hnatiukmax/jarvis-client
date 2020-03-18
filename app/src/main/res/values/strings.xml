@@ -6,6 +6,18 @@
     <string name="introduction_continue_with_facebook">Continue with Facebook</string>
     <string name="introduction_continue_with_email">Continue with Email</string>
 
+    <string name="introduction_label_first_jarvis_time">Jarvis Time</string>
+    <string name="introduction_label_first_do_first">Do first</string>
+    <string name="introduction_label_first_do_later">Do later</string>
+    <string name="introduction_label_first_do_by_others">Do by others</string>
+    <string name="introduction_label_first_do_not_do">Do not do</string>
+
+    <string name="introduction_label_second_jarvis_time">Be more productive and use your time wisely</string>
+    <string name="introduction_label_second_do_first">Try to keep this square empty</string>
+    <string name="introduction_label_second_do_later">They can be of greatest benefit in the future</string>
+    <string name="introduction_label_second_do_by_others">Such cases rarely bring us closer to our goal</string>
+    <string name="introduction_label_second_do_not_do">Often, the implementation of such cases does not bring any practical benefit</string>
+
     <!-- Log In  -->
     <string name="log_in_welcome_back">Welcome Back</string>
     <string name="log_in_log_in_continue">Log in to continue</string>

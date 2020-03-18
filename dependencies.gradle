@@ -31,6 +31,7 @@ ext {
     circleImageView = 'de.hdodenhof:circleimageview'
     glide = 'com.github.bumptech.glide:glide'
     glideCompiler = 'com.github.bumptech.glide:compiler'
+    materialProgress = 'me.zhanghai.android.materialprogressbar:library'
 
     rxJava = 'io.reactivex.rxjava2:rxjava'
     rxAndroid = 'io.reactivex.rxjava2:rxandroid'
@@ -77,6 +78,7 @@ ext {
     lottieVersion = '3.4.0'
     circleImageViewVersion = '2.2.0'
     glideVersion = '4.9.0'
+    materialProgressVersion = '1.6.1'
 
     rxJavaVersion = '2.1.5'
     rxAndroidVersion = '2.0.1'
@@ -114,6 +116,7 @@ ext {
             circleImageView       : "${circleImageView}:${circleImageViewVersion}",
             glide                 : "${glide}:${glideVersion}",
             glideCompiler         : "${glideCompiler}:${glideVersion}",
+            materialProgress      : "${materialProgress}:${materialProgressVersion}",
 
             rxJava                : "${rxJava}:${rxJavaVersion}",
             rxAndroid             : "${rxAndroid}:${rxAndroidVersion}",

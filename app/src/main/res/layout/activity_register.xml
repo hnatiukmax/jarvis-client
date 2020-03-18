@@ -81,7 +81,8 @@
                             android:hint="@string/log_in_enter_your_email"
                             android:imeOptions="actionNext"
                             android:inputType="textEmailAddress"
-                            android:text="@={viewModel.username}" />
+                            android:text="@={viewModel.username}"
+                            app:hasError="@{viewModel.usernameHasError}" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,10 +110,11 @@
                             android:id="@+id/password"
                             style="@style/AppTheme.EditText"
                             android:hint="@string/log_in_enter_your_password"
-                            android:imeOptions="actionDone"
+                            android:imeOptions="actionNext"
                             android:inputType="textPassword"
                             android:paddingTop="2dp"
-                            android:text="@={viewModel.password}" />
+                            android:text="@={viewModel.password}"
+                            app:hasError="@{viewModel.passwordHasError}" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -137,25 +139,42 @@
                         app:passwordToggleEnabled="true">
 
                         <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/conformPassword"
+                            android:id="@+id/confirmPassword"
                             style="@style/AppTheme.EditText"
                             android:hint="@string/register_confirm_your_password"
                             android:imeOptions="actionDone"
                             android:inputType="textPassword"
                             android:paddingTop="2dp"
-                            android:text="@={viewModel.confirmPassword}" />
+                            android:text="@={viewModel.confirmPassword}"
+                            app:hasError="@{viewModel.confirmPasswordHasError}" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/createNewAccount"
-                        style="@style/AppTheme.Button.Red"
+                        style="@style/AppTheme.Button.Main"
                         android:layout_marginStart="@dimen/defaultFlowAuthHorizontalMargin"
                         android:layout_marginTop="@dimen/defaultFlowAuthVerticalMarginLarge"
                         android:layout_marginEnd="@dimen/defaultFlowAuthHorizontalMargin"
                         android:layout_marginBottom="0dp"
                         android:onClick="@{() -> viewModel.onRegisterClick()}"
                         android:text="@string/register_create_new_account" />
+
+                    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                        android:id="@+id/progress"
+                        style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="@dimen/defaultFlowAuthVerticalMarginMedium"
+                        android:layout_marginTop="@dimen/defaultMarginLarge"
+                        android:layout_marginEnd="@dimen/defaultFlowAuthVerticalMarginMedium"
+                        android:indeterminate="true"
+                        android:visibility="gone"
+                        app:mpb_indeterminateTint="@color/red"
+                        app:mpb_progressBackgroundTint="@color/red"
+                        app:mpb_progressStyle="horizontal"
+                        app:mpb_progressTint="@color/red"
+                        app:showProgress="@{viewModel.isProgressVisible}" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/haveAnAccount"
@@ -172,7 +191,6 @@
             </ScrollView>
 
         </LinearLayout>
-
 
         <com.bugmakers.jarvistime.presentation.view.ProgressView
             android:layout_width="match_parent"

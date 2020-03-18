@@ -1,5 +1,5 @@
 package com.bugmakers.jarvistime.presentation.pages.splashscreen
 
-import androidx.lifecycle.ViewModel
+import com.bugmakers.jarvistime.presentation.base.BaseViewModel
 
-class SplashScreenViewModel : ViewModel()
+internal class SplashScreenViewModel : BaseViewModel()

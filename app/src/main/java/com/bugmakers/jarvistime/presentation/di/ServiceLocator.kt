@@ -2,6 +2,8 @@ package com.bugmakers.jarvistime.presentation.di
 
 import android.app.Application
 import com.bugmakers.jarvistime.BuildConfig
+import com.bugmakers.jarvistime.R
+import com.bugmakers.jarvistime.data.auth.getGoogleSignInClient
 import com.bugmakers.jarvistime.data.network.client.*
 import com.bugmakers.jarvistime.data.network.mapper.*
 import com.bugmakers.jarvistime.data.repository.AuthRepository
@@ -11,6 +13,8 @@ import com.bugmakers.jarvistime.presentation.pages.introduction.IntroductionActi
 import com.bugmakers.jarvistime.presentation.pages.login.LogInActivityViewModel
 import com.bugmakers.jarvistime.presentation.pages.register.RegisterActivityViewModel
 import com.bugmakers.jarvistime.presentation.pages.splashscreen.SplashScreenViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.squareup.moshi.Moshi
 import org.kodein.di.Kodein
 import org.kodein.di.conf.ConfigurableKodein
@@ -41,7 +45,9 @@ class ServiceLocator(
 
     private fun viewModelDependencies() = Kodein.Module("viewModelDependencies") {
         bind<SplashScreenViewModel>() with provider { SplashScreenViewModel() }
-        bind<IntroductionActivityViewModel>() with provider { IntroductionActivityViewModel(instance()) }
+        bind<IntroductionActivityViewModel>() with provider {
+            IntroductionActivityViewModel(instance(), instance())
+        }
         bind<LogInActivityViewModel>() with provider { LogInActivityViewModel(instance()) }
         bind<RegisterActivityViewModel>() with provider { RegisterActivityViewModel(instance()) }
     }
@@ -58,6 +64,9 @@ class ServiceLocator(
 
         bind<AuthService>() with singleton { instance<RestClient>().authService }
         bind<TaskService>() with singleton { instance<RestClient>().taskService }
+        bind<GoogleSignInClient>() with singleton {
+            getGoogleSignInClient(app.applicationContext, R.string.server_client_id)
+        }
     }
 
     private fun repositoryDependencies() = Kodein.Module("repositoryDependencies") {

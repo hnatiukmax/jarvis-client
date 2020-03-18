@@ -1,8 +1,5 @@
 package com.bugmakers.jarvistime.presentation.pages.login
 
-import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivityLogInBinding
 import com.bugmakers.jarvistime.presentation.base.BaseActivity
@@ -10,29 +7,15 @@ import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.extensions.makeToolbarAsActionBar
 import com.bugmakers.jarvistime.presentation.pages.main.MainActivity
 import com.bugmakers.jarvistime.presentation.pages.register.RegisterActivity
-import es.dmoral.toasty.Toasty
 import org.kodein.di.generic.instance
 
-class LogInActivity : BaseActivity() {
+internal class LogInActivity : BaseActivity<ActivityLogInBinding, LogInActivityViewModel>() {
 
-    private val viewModel by instance<LogInActivityViewModel>()
+    override val layoutId = R.layout.activity_log_in
+    override val viewModel by instance<LogInActivityViewModel>()
 
-    private lateinit var binding: ActivityLogInBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_log_in)
-        binding.apply {
-            lifecycleOwner = this@LogInActivity
-            viewModel = this@LogInActivity.viewModel
-
-            init()
-        }
-
-        viewModel.observeViewModel()
-    }
-
-    private fun ActivityLogInBinding.init() {
+    override fun ActivityLogInBinding.initView() {
+        viewModel = this@LogInActivity.viewModel
         makeToolbarAsActionBar(toolbar)
         toolbar.setLeftActionAsBackButton(true)
 
@@ -41,18 +24,11 @@ class LogInActivity : BaseActivity() {
         }
     }
 
-    private fun LogInActivityViewModel.observeViewModel() {
-        onLogin.observe(this@LogInActivity, Observer {
+    override fun LogInActivityViewModel.observeViewModel() {
+        onLogin.observe {
             goTo(MainActivity::class.java)
             finish()
-        })
-
-        onOpenMessageDialog.observe(this@LogInActivity, Observer {
-            if (it.second) {
-                Toasty.error(this@LogInActivity, it.first).show()
-            } else {
-                Toasty.info(this@LogInActivity, it.first).show()
-            }
-        })
+        }
+        isProgressVisible.observe { binding.logIn.isEnabled = !it }
     }
 }

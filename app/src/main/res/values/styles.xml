@@ -76,6 +76,7 @@
         <item name="android:textSize">@dimen/textSizeMedium</item>
         <item name="android:textColorHint">@color/textHint</item>
         <item name="android:textColor">@color/textBlack</item>
+        <item name="android:background">@drawable/transparent_background_with_underline_normal</item>
     </style>
 
     <style name="AppTheme.ToolbarActionButton">
@@ -92,24 +93,29 @@
 
     <!--  Button  -->
     <style name="AppTheme.Button" parent="Widget.AppCompat.Button">
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/defaultButtonHeight</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
         <item name="android:textSize">@dimen/textSizeMedium</item>
         <item name="android:fontFamily">@font/avenir_next_rounded_demi</item>
-        <item name="android:paddingTop">13dp</item>
-        <item name="android:paddingBottom">13dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:stateListAnimator">@animator/animation_press_button_scale</item>
         <item name="android:paddingLeft">18dp</item>
         <item name="android:paddingRight">18dp</item>
-        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:textAllCaps">false</item>
-        <item name="android:elevation">8dp</item>
-        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:elevation">5dp</item>
+        <item name="android:translationZ">5dp</item>
     </style>
 
-    <style name="AppTheme.Button.Red">
-        <item name="android:background">@drawable/background_white_red</item>
-        <item name="android:textColor">@color/textWhite</item>
+    <style name="AppTheme.Button.Main">
+        <item name="android:background">@drawable/background_button_main_selector</item>
+        <item name="android:textColor">@color/button_main_text</item>
     </style>
+
+    <style name="AppTheme.Button.White">
+        <item name="android:background">@drawable/background_simple_button</item>
+    </style>
+
 
     <style name="AppTheme.NoBackgroundButton" parent="Widget.AppCompat.TextView">
         <item name="android:layout_width">wrap_content</item>
@@ -141,19 +147,11 @@
         <item name="android:layout_marginEnd">32dp</item>
         <item name="android:elevation">10dp</item>
         <item name="android:translationZ">5dp</item>
+        <item name="android:fontFamily">@font/avenir_next_rounded_demi</item>
         <item name="android:textSize">@dimen/textSizeMedium</item>
     </style>
 
-    <style name="AppTheme.IntroductionButton" parent="AppTheme.SocialAuthButton">
-        <item name="android:background">@drawable/background_simple_button</item>
-        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@android:color/tertiary_text_dark</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
     <!-- Dialogs -->
-
     <style name="CreateTaskDialog" parent="Base.Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowMinWidthMajor">90%</item>
         <item name="android:windowMinWidthMinor">90%</item>

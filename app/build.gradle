@@ -46,7 +46,7 @@ android {
             versionCode VERSION_CODE
             versionName android.defaultConfig.versionName
             buildConfigField "String", "DATABASE_PREFIX", '"jarvis_db"'
-            buildConfigField "String", "API_URL", '"https://floating-forest-61726.herokuapp.com"'
+            buildConfigField "String", "API_URL", '"https://jarvis-development.herokuapp.com"'
             buildConfigField "String", "API_PREFFIX", '"/"'
         }
     }
@@ -93,6 +93,7 @@ dependencies {
         exclude group: "com.android.support"
     }
     annotationProcessor appDependencies.glideCompiler
+    implementation appDependencies.materialProgress
 
     implementation appDependencies.rxJava
     implementation appDependencies.rxAndroid
