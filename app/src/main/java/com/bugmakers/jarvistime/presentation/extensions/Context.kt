@@ -1,10 +1,12 @@
 package com.bugmakers.jarvistime.presentation.extensions
 
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.res.Resources
 import android.util.DisplayMetrics
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.lifecycle.LifecycleOwner
 
 // !!! Use toasty library (toast with steroids)
 fun Context.showToast(
@@ -23,6 +25,19 @@ fun Context.getMetricsRatio(): Double {
     }
 
     return (displayMetrics.heightPixels.toDouble() / displayMetrics.widthPixels)
+}
+
+fun Context.lifecycleOwner(): LifecycleOwner? {
+    var curContext = this
+    var maxDepth = 20
+    while (maxDepth-- > 0 && this !is LifecycleOwner) {
+        curContext = (this as ContextWrapper).baseContext
+    }
+    return if (curContext is LifecycleOwner) {
+        curContext
+    } else {
+        null
+    }
 }
 
 fun Context.px2Dp(size: Int): Int = (size / Resources.getSystem().displayMetrics.density).toInt()

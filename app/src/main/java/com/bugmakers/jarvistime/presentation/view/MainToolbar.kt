@@ -57,23 +57,12 @@ class MainToolbar @JvmOverloads constructor(
 
         try {
             attrsArray.apply {
-                titleTextRes = getString(R.styleable.MainToolbar_titleText)
-                titleTextAppearanceRes = getResourceId(
-                    R.styleable.MainToolbar_titleTextAppearance,
-                    titleTextAppearanceRes
-                )
-                titleTextColorRes =
-                    getColor(R.styleable.MainToolbar_titleTextColor, titleTextColorRes)
-                backgroundToolbarColorRes =
-                    getColor(R.styleable.MainToolbar_backgroundColor, backgroundToolbarColorRes)
-                leftNavigationActionIconRes = getResourceId(
-                    R.styleable.MainToolbar_leftActionIcon,
-                    leftNavigationActionIconRes
-                )
-                rightNavigationActionIconRes = getResourceId(
-                    R.styleable.MainToolbar_rightActionIcon,
-                    rightNavigationActionIconRes
-                )
+                titleTextRes = getString(R.styleable.MainToolbar_mtb_titleText)
+                titleTextAppearanceRes = getResourceId(R.styleable.MainToolbar_mtb_titleTextAppearance, titleTextAppearanceRes)
+                titleTextColorRes = getColor(R.styleable.MainToolbar_mtb_titleTextColor, titleTextColorRes)
+                backgroundToolbarColorRes = getColor(R.styleable.MainToolbar_mtb_backgroundColor, backgroundToolbarColorRes)
+                leftNavigationActionIconRes = getResourceId(R.styleable.MainToolbar_mtb_leftActionIcon, leftNavigationActionIconRes)
+                rightNavigationActionIconRes = getResourceId(R.styleable.MainToolbar_mtb_rightActionIcon, rightNavigationActionIconRes)
             }
         } finally {
             attrsArray.recycle()

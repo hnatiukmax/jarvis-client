@@ -9,17 +9,20 @@ import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.DialogInfoBinding
+import com.bugmakers.jarvistime.presentation.entity.AppUIMessage
 import com.bugmakers.jarvistime.presentation.extensions.string
+import com.bugmakers.jarvistime.presentation.entity.enums.TypeUIMessage
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class InfoDialog private constructor() : BottomSheetDialogFragment() {
+internal class InfoDialog private constructor() : BottomSheetDialogFragment() {
 
-    private lateinit var binding : DialogInfoBinding
+    private lateinit var binding: DialogInfoBinding
 
-    private var onDismissListener : OnDismissListener? = null
+    private var onDismissListener: OnDismissListener? = null
 
     companion object {
         private const val ARG_ICON = "ARG_ICON"
@@ -27,10 +30,10 @@ class InfoDialog private constructor() : BottomSheetDialogFragment() {
         private const val ARG_DESCRIPTION = "ARG_DESCRIPTION"
 
         fun newInstance(
-            context : Context,
-            @DrawableRes iconRes : Int,
-            @StringRes titleRes : Int,
-            @StringRes descriptionRes : Int
+            context: Context,
+            @DrawableRes iconRes: Int,
+            @StringRes titleRes: Int,
+            @StringRes descriptionRes: Int
         ) = newInstance(
             iconRes = iconRes,
             title = context.string(titleRes),
@@ -38,9 +41,9 @@ class InfoDialog private constructor() : BottomSheetDialogFragment() {
         )
 
         fun newInstance(
-            @DrawableRes iconRes : Int,
-            title : String,
-            description : String
+            @DrawableRes iconRes: Int,
+            title: String,
+            description: String
         ) = InfoDialog().apply {
             arguments = bundleOf(
                 ARG_ICON to iconRes,
@@ -48,6 +51,19 @@ class InfoDialog private constructor() : BottomSheetDialogFragment() {
                 ARG_DESCRIPTION to description
             )
         }
+
+        fun newInstance(context: Context, appUIMessage: AppUIMessage) = InfoDialog().apply {
+            val iconRes = when (appUIMessage.typeMessage) {
+                TypeUIMessage.ERROR -> R.drawable.ic_warning
+                else -> 0
+            }
+
+            arguments = bundleOf(
+                ARG_ICON to iconRes,
+                ARG_DESCRIPTION to appUIMessage.stringResource.message(context)
+            )
+        }
+
     }
 
     override fun onAttach(context: Context) {
@@ -79,7 +95,10 @@ class InfoDialog private constructor() : BottomSheetDialogFragment() {
         arguments?.let {
             binding.apply {
                 icon.setBackgroundResource(it.getInt(ARG_ICON))
+
+                title.isVisible = it.containsKey(ARG_TITLE)
                 title.text = it.getString(ARG_TITLE)
+
                 description.text = it.getString(ARG_DESCRIPTION)
             }
         }
@@ -90,54 +109,54 @@ class InfoDialog private constructor() : BottomSheetDialogFragment() {
         onDismissListener?.onDismissListener(tag)
     }
 
-    class Builder(private val context : Context) {
+    class Builder(private val context: Context) {
         @DrawableRes
-        private var iconRes : Int? = null
-        private var title : String? = null
-        private var description : String? = null
+        private var iconRes: Int? = null
+        private var title: String? = null
+        private var description: String? = null
 
-        private var onDismissListener : OnDismissListener? = null
+        private var onDismissListener: OnDismissListener? = null
 
-        fun setIconResource(@DrawableRes iconRes : Int) : Builder {
+        fun setIconResource(@DrawableRes iconRes: Int): Builder {
             this.iconRes = iconRes
             return this
         }
 
-        fun setTitleResource(@StringRes titleRes : Int) : Builder {
+        fun setTitleResource(@StringRes titleRes: Int): Builder {
             this.title = context.string(titleRes)
             return this
         }
 
-        fun setDescriptionResource(@StringRes descriptionRes: Int) : Builder {
+        fun setDescriptionResource(@StringRes descriptionRes: Int): Builder {
             this.description = context.string(descriptionRes)
             return this
         }
 
-        fun setTitle(title : String) : Builder{
+        fun setTitle(title: String): Builder {
             this.title = title
             return this
         }
 
-        fun setDescription(description: String) : Builder {
+        fun setDescription(description: String): Builder {
             this.description = description
             return this
         }
 
-        fun setOnDismissListener(onDismissListener: OnDismissListener) : Builder {
+        fun setOnDismissListener(onDismissListener: OnDismissListener): Builder {
             this.onDismissListener = onDismissListener
             return this
         }
 
-        fun setOnDismissListener(callback : (tag : String?) -> Unit) : Builder {
+        fun setOnDismissListener(callback: (tag: String?) -> Unit): Builder {
             this.onDismissListener = object : OnDismissListener {
-                override fun onDismissListener(tag : String?) {
+                override fun onDismissListener(tag: String?) {
                     callback(tag)
                 }
             }
             return this
         }
 
-        fun build() : InfoDialog {
+        fun build(): InfoDialog {
             val args = bundleOf(
                 ARG_ICON to iconRes,
                 ARG_TITLE to title,
@@ -154,6 +173,6 @@ class InfoDialog private constructor() : BottomSheetDialogFragment() {
     }
 
     interface OnDismissListener {
-        fun onDismissListener(tag : String?)
+        fun onDismissListener(tag: String?)
     }
 }

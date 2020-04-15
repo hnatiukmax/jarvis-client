@@ -2,21 +2,51 @@
 <resources>
 
     <array name="introduction_item_logo_ids">
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
+        <item>@drawable/ic_introduction_meditation</item>
+        <item>@drawable/ic_introduction_second</item>
+        <item>@drawable/ic_introduction_third</item>
     </array>
 
     <array name="introduction_first_label_ids">
-        <item>Title 1</item>
-        <item>Title 2</item>
-        <item>Title 3</item>
+        <item>@string/introduction_label_first_welcome</item>
+        <item>@string/introduction_label_first_welcome</item>
+        <item>@string/introduction_label_first_welcome</item>
     </array>
 
     <array name="introduction_second_label_ids">
-        <item>Label 1</item>
-        <item>Label 2</item>
-        <item>Label 3</item>
+        <item>@string/introduction_label_second_this_app</item>
+        <item>@string/introduction_label_second_this_app</item>
+        <item>@string/introduction_label_second_this_app</item>
     </array>
+
+    <array name="task_type_background">
+        <item>@color/backgroundTaskDoFirst</item>
+        <item>@color/backgroundTaskDoLater</item>
+        <item>@color/backgroundTaskDoByOthers</item>
+        <item>@color/backgroundTaskDoNotDo</item>
+    </array>
+
+    <array name="task_type_background_drawable">
+        <item>@drawable/background_task_do_first</item>
+        <item>@drawable/background_task_do_later</item>
+        <item>@drawable/background_task_do_by_others</item>
+        <item>@drawable/background_task_do_not_do</item>
+    </array>
+
+    <array name="task_type_icon">
+        <item>@drawable/ic_do_first</item>
+        <item>@drawable/ic_do_later</item>
+        <item>@drawable/ic_do_by_others</item>
+        <item>@drawable/ic_do_not_do</item>
+    </array>
+
+    <array name="task_type_title">
+        <item>@string/introduction_label_first_do_first</item>
+        <item>@string/introduction_label_first_do_later</item>
+        <item>@string/introduction_label_first_do_by_others</item>
+        <item>@string/introduction_label_first_do_not_do</item>
+    </array>
+
+
 
 </resources>

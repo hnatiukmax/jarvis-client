@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 internal data class TaskRequestBody(
     @Json(name = "type")
-    val type : Int,
+    val taskType : Int,
     @Json(name = "description")
     val description : String,
     @Json(name = "isCompleted")

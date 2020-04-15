@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="selectableItemBackgroundRounded" format="reference" />
+    <attr name="selectableItemBackgroundRoundedGreen" format="reference" />
+    <attr name="selectableItemBackgroundCircle" format="reference" />
+    <attr name="selectableItemBackgroundHalfCircle" format="reference" />
+
     <declare-styleable name="MainToolbar">
-        <attr name="titleText" format="string" />
-        <attr name="titleTextColor" format="color" />
-        <attr name="titleTextAppearance" format="reference" />
-        <attr name="backgroundColor" format="color" />
-        <attr name="leftActionIcon" format="reference" />
-        <attr name="rightActionIcon" format="reference" />
+        <attr name="mtb_titleText" format="string" />
+        <attr name="mtb_titleTextColor" format="color" />
+        <attr name="mtb_titleTextAppearance" format="reference" />
+        <attr name="mtb_backgroundColor" format="color" />
+        <attr name="mtb_leftActionIcon" format="reference" />
+        <attr name="mtb_rightActionIcon" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="ProgressView">
         <attr name="background" format="reference" />
         <attr name="progressViewPath" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="PageIndicatorView">
+        <attr name="piv_count" format="integer" />
+        <attr name="piv_spacing" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="InputEditTextView">
+        <attr name="iet_hint" format="string" />
+        <attr name="iet_toggleIcon" format="reference" />
+        <attr name="iet_toggleVisible" format="boolean" />
+        <attr name="iet_toggleEnabled" format="boolean" />
+        <attr name="iet_validationVisible" format="boolean" />
+        <attr name="android:imeOptions" />
+        <attr name="android:inputType" />
     </declare-styleable>
 
 </resources>

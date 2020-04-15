@@ -7,7 +7,7 @@ import com.bugmakers.jarvistime.presentation.extensions.visible
 import com.bugmakers.jarvistime.presentation.view.ProgressView
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar
 
-@BindingAdapter("isShowProgress")
+@BindingAdapter("showProgress")
 internal fun showProgress(view: ProgressView, isVisible: Boolean) {
     if (view.visibility != View.VISIBLE && isVisible) {
         view.showProgress()

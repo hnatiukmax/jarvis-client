@@ -24,6 +24,9 @@
     <color name="backgroundDialog">#FCFAFB</color>
     <color name="background_divider_color">#FFBBBBBB</color>
 
+    <color name="backgroundProgressStart">#E6646262</color>
+    <color name="backgroundProgressEnd">#B3727272</color>
+
     <!-- Widget  -->
     <color name="editTextUnderlineNormal">#EDEDED</color>
     <color name="editTextErrorUnderlineColor">#F24C4C</color>
@@ -32,13 +35,34 @@
     <color name="backgroundIconGoogle">#A5241B</color>
     <color name="backgroundButtonFacebook">#E63560B8</color>
     <color name="backgroundIconFacebook">#E60F3991</color>
-    <color name="backgroundProgressView">#80000000</color>
+    <color name="backgroundProgressView">#E6646262</color>
 
     <color name="mainButton">#66F48282</color>
     <color name="mainButtonBorder">#B3E55757</color>
 
-    <color name="mainButtonDisabled">#33C2C0C0</color>
+    <color name="mainButtonDisabled">#CECDCD</color>
     <color name="mainButtonBorderDisable">#B3686868</color>
+    <color name="backgroundProgressBlur">#801E1B1B</color>
 
+    <color name="backgroundTaskDoFirst">#EE4266</color>
+    <color name="backgroundTaskDoLater">#21C9F3</color>
+    <color name="backgroundTaskDoByOthers">#F75C03</color>
+    <color name="backgroundTaskDoNotDo">#540D6E</color>
+
+    <color name="backgroundTaskDoLater_80">#CC21C9F3</color>
+    <color name="backgroundTaskDoByOthers_80">#CC606060</color>
+    <color name="backgroundTaskDoNotDo_90">#E6540D6E</color>
+
+    <!-- Redesign color  -->
+    <color name="main_button_new">#64aa89</color>
+    <color name="line_divider">#4DC6C6C6</color>
+    <color name="button_border_gray">#4DA6A29E</color>
+    <color name="page_indicator_selected">@color/main_button_new</color>
+    <color name="page_indicator_unselected">#dddbdd</color>
+    <color name="text_hint">#CC909090</color>
+    <color name="edit_text_background">#ECECEC</color>
+    <color name="ic_gray">#A5A7AC</color>
+
+    <color name="edit_text_hint">#B4B6B6</color>
 
 </resources>

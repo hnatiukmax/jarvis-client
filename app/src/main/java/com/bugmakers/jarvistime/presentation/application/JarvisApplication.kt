@@ -2,6 +2,7 @@ package com.bugmakers.jarvistime.presentation.application
 
 import android.app.Application
 import com.bugmakers.jarvistime.presentation.di.ServiceLocator
+import es.dmoral.toasty.Toasty
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.kodein.di.KodeinAware
@@ -17,13 +18,20 @@ class JarvisApplication : Application(), KodeinAware {
         super.onCreate()
         serviceLocator = ServiceLocator(kodein, this)
         serviceLocator.setInjection()
+
         realmInit()
+        configToasty()
     }
 
-    fun realmInit() {
+    private fun configToasty() {
+        Toasty.Config.getInstance()
+            .setTextSize(14)
+            .apply()
+    }
+
+    private fun realmInit() {
         Realm.init(this)
-        val config = RealmConfiguration.Builder()
-            .build()
+        val config = RealmConfiguration.Builder().build()
         Realm.setDefaultConfiguration(config)
     }
 }

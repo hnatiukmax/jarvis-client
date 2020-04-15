@@ -14,7 +14,7 @@ internal fun User.mapToUserDataSource() = UserRequestBody(
 )
 
 internal fun Task.mapToTaskDataSource() = TaskRequestBody(
-    type = type.intValue,
+    taskType = type.intValue,
     description = description,
     isCompleted = isCompleted
 )

@@ -3,10 +3,9 @@ package com.bugmakers.jarvistime.presentation.extensions
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
-import android.graphics.drawable.ColorDrawable
 import android.view.View
-import android.widget.EditText
 import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
 import androidx.core.graphics.drawable.DrawableCompat
@@ -39,13 +38,24 @@ internal fun View.color(@ColorRes colorResId: Int) = context.color(colorResId)
 
 internal fun View.string(@StringRes stringResId: Int) = context.string(stringResId)
 
-internal fun View.dimen(@IntegerRes integerResId: Int) = context.integer(integerResId)
+internal fun View.integer(@IntegerRes integerRes: Int) = context.integer(integerRes)
 
-internal fun View.setBackgroundTint(colorResId: Int) {
-    val unwrappedBottomDrawable = background
-    val wrappedBottomDrawable = DrawableCompat.wrap(unwrappedBottomDrawable)
+internal fun View.dimen(@DimenRes dimenResId: Int) = context.dimen(dimenResId)
 
-    wrappedBottomDrawable.setTint(colorResId)
+internal fun View.px2Dp(value: Int) = context.px2Dp(value)
+
+internal fun View.dp2Px(value: Int) = context.dp2Px(value)
+
+internal fun View.dp2Px(value: Float) = context.dp2Px(value)
+
+internal fun View.setBackgroundTint(colorResId: Int): Boolean {
+    return background?.let {
+        val wrappedBottomDrawable = DrawableCompat.wrap(it)
+
+        wrappedBottomDrawable.setTint(colorResId)
+
+        true
+    } ?: false
 }
 
 

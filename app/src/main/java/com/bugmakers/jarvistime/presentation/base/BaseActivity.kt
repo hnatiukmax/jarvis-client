@@ -8,15 +8,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.bugmakers.jarvistime.presentation.application.JarvisApplication
 import com.bugmakers.jarvistime.presentation.extensions.hideSoftKeyboard
-import com.bugmakers.jarvistime.presentation.utils.showToastMessage
+import com.bugmakers.jarvistime.presentation.extensions.show
+import com.bugmakers.jarvistime.presentation.view.dialog.InfoDialog
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 
-internal abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : AppCompatActivity(),
+internal abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(),
     KodeinAware {
 
-    protected lateinit var binding: T
-    protected abstract val viewModel: V
+    protected lateinit var binding: V
+    protected abstract val viewModel: VM
     protected abstract val layoutId: Int
 
     override val kodein: Kodein by lazy {
@@ -29,15 +30,15 @@ internal abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : A
 
         binding.apply {
             lifecycleOwner = this@BaseActivity
-
             initView()
         }
 
         viewModel.apply {
             onShowMessage.observe {
-                showToastMessage(it.first, it.second)
+                InfoDialog.newInstance(this@BaseActivity, it).show(this@BaseActivity)
             }
-            onCloseKeyboard.observe{
+
+            onCloseKeyboard.observe {
                 hideSoftKeyboard()
             }
 
@@ -45,18 +46,22 @@ internal abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel> : A
         }
     }
 
-    protected open fun T.initView() {}
+    protected open fun V.initView() {}
 
-    protected open fun V.observeViewModel() {}
+    protected open fun VM.observeViewModel() {}
 
     override fun onDestroy() {
         viewModel.onCleared()
         super.onDestroy()
     }
 
-    protected fun <P> LiveData<P>.observe(observerBody : (P) -> Unit) {
+    protected fun <P> LiveData<P>.observe(observerBody: (P) -> Unit) {
         this.observe(this@BaseActivity, Observer {
             observerBody(it)
         })
+    }
+
+    fun setProgressVisibility(isVisible: Boolean) {
+        viewModel.isProgressVisible.value = isVisible
     }
 }

@@ -14,8 +14,11 @@ internal fun String?.ifPasswordCheckValid() = this?.run {
 internal fun String?.ifUsernameCheckValid() = this?.run {
     when {
         isNullOrEmpty() -> false
-        indexOf('@') < 0 -> false
-        substring(indexOf('@')).isEmpty() -> false
+        count { it == '@' } != 1 -> false
+        substringAfter('@').isBlank() -> false
+        substringAfter('@')[0] == '.' -> false
+        !substringAfter('@').contains('.') -> false
+        substringAfterLast('.').isBlank() -> false
         isDigitsOnly() -> false
         else -> true
     }

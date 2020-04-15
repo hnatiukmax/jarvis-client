@@ -1,6 +1,5 @@
 package com.bugmakers.jarvistime.presentation.view
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
@@ -13,6 +12,7 @@ import androidx.annotation.DrawableRes
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
 import com.bugmakers.jarvistime.R
+import com.bugmakers.jarvistime.presentation.extensions.visibleWithAnimation
 
 internal class ProgressView @JvmOverloads constructor(
     context: Context,
@@ -23,44 +23,37 @@ internal class ProgressView @JvmOverloads constructor(
 
     private val progressView: LottieAnimationView
 
+    companion object {
+        private const val APPEARING_DURATION = 300L
+    }
+
     @DrawableRes
     @ColorRes
-    private var backgroundResourcesId = R.color.backgroundProgressView
+    private var backgroundResourcesId = R.drawable.background_progress_view
     private var progressViewPath = "lottiefiles/progress.json"
 
     init {
         readAttrs(attrs, defStyleAttr, defStyleRes)
 
         setBackgroundResource(backgroundResourcesId)
-        isClickable = false
+        isClickable = true
+        isFocusable = true
 
         progressView = createAnimatedView(progressViewPath)
-        addView(
-            progressView,
-            LayoutParams(
-                LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            ).apply {
-                gravity = Gravity.CENTER
-            }
-        )
+
+        val layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
+            gravity = Gravity.CENTER
+        }
+        addView(progressView, layoutParams)
     }
 
-    @SuppressLint("NewApi")
     private fun readAttrs(attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        val attrsArray = context.theme.obtainStyledAttributes(
-            attrs,
-            R.styleable.ProgressView,
-            defStyleAttr,
-            defStyleRes
-        )
+        val attrsArray = context.theme.obtainStyledAttributes(attrs, R.styleable.ProgressView, defStyleAttr, defStyleRes)
 
         try {
             attrsArray.apply {
-                backgroundResourcesId =
-                    getResourceId(R.styleable.ProgressView_background, backgroundResourcesId)
-                progressViewPath =
-                    getString(R.styleable.ProgressView_progressViewPath) ?: progressViewPath
+                backgroundResourcesId = getResourceId(R.styleable.ProgressView_background, backgroundResourcesId)
+                progressViewPath = getString(R.styleable.ProgressView_progressViewPath) ?: progressViewPath
             }
         } finally {
             attrsArray.recycle()
@@ -87,12 +80,12 @@ internal class ProgressView @JvmOverloads constructor(
     }
 
     fun showProgress() {
-        visibility = View.VISIBLE
         progressView.playAnimation()
+        visibleWithAnimation(true, APPEARING_DURATION)
     }
 
     fun hideProgress() {
-        visibility = View.GONE
-        progressView.cancelAnimation()
+        progressView.pauseAnimation()
+        visibleWithAnimation(false, APPEARING_DURATION)
     }
 }

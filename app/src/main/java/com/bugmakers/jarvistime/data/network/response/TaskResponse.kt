@@ -5,7 +5,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 internal data class TaskResponse(
-    @Json(name = "id")
+    @Json(name = "task_id")
     val id : Int,
     @Json(name = "type")
     val type : Int,

@@ -2,9 +2,13 @@ package com.bugmakers.jarvistime.presentation.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bugmakers.jarvistime.presentation.entity.AppException
+import com.bugmakers.jarvistime.presentation.entity.AppUIMessage
+import com.bugmakers.jarvistime.presentation.entity.appUIMessage
+import com.bugmakers.jarvistime.presentation.extensions.disable
+import com.bugmakers.jarvistime.presentation.extensions.enable
 import com.bugmakers.jarvistime.presentation.utils.ActionLiveData
-import com.bugmakers.jarvistime.presentation.utils.StringResource
-import com.bugmakers.jarvistime.presentation.utils.TypeUIMessage
+import com.bugmakers.jarvistime.presentation.utils.listeners.doOnError
 import io.reactivex.Completable
 import io.reactivex.disposables.CompositeDisposable
 
@@ -17,7 +21,7 @@ internal abstract class BaseViewModel : ViewModel() {
      */
     val isProgressVisible = MutableLiveData<Boolean>()
     val onCloseKeyboard = ActionLiveData<Unit>()
-    val onShowMessage = MutableLiveData<Pair<TypeUIMessage, StringResource>>()
+    val onShowMessage = MutableLiveData<AppUIMessage>()
 
     /**
      * Will be called, when View will be destroyed.
@@ -27,7 +31,14 @@ internal abstract class BaseViewModel : ViewModel() {
         super.onCleared()
     }
 
-    protected fun Completable.enableProgress(): Completable =
-        doOnSubscribe { isProgressVisible.value = true }
-        .doFinally { isProgressVisible.value = false }
+    protected fun Completable.enableProgress(): Completable {
+        return doOnSubscribe { isProgressVisible.enable() }
+            .doFinally { isProgressVisible.disable() }
+    }
+
+    protected fun Completable.handleError() : Completable {
+        return doOnError { error: AppException ->
+            onShowMessage.value = error.appUIMessage
+        }
+    }
 }

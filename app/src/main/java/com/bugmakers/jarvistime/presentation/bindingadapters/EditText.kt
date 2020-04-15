@@ -4,7 +4,7 @@ import android.animation.ArgbEvaluator
 import android.widget.EditText
 import androidx.databinding.BindingAdapter
 import com.bugmakers.jarvistime.R
-import com.bugmakers.jarvistime.presentation.extensions.animate
+import com.bugmakers.jarvistime.presentation.extensions.animateByUpdateListener
 import com.bugmakers.jarvistime.presentation.extensions.color
 import com.bugmakers.jarvistime.presentation.extensions.setBackgroundTint
 
@@ -26,13 +26,8 @@ fun hasError(view: EditText, isError: Boolean?) {
 
         val argbEvaluator = ArgbEvaluator()
 
-        animate(0.0f..1.0f, 300) {
-            val position = it.animatedValue as Float
-            val color = argbEvaluator.evaluate(
-                position,
-                color(startColor),
-                color(endColor)
-            ) as Int
+        animateByUpdateListener(0.0f..1.0f, 300) {
+            val color = argbEvaluator.evaluate(it, color(startColor), color(endColor)) as Int
 
             setBackgroundTint(color)
         }.start()

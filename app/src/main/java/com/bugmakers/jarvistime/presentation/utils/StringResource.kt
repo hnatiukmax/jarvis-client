@@ -15,3 +15,6 @@ internal class StringResource(
 
 internal inline val String?.asStringResources : StringResource
     get() = StringResource(messageText = this ?: "")
+
+internal inline val Int.asStringResources : StringResource
+    get() = StringResource(messageResId = this)

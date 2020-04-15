@@ -46,7 +46,7 @@ android {
             versionCode VERSION_CODE
             versionName android.defaultConfig.versionName
             buildConfigField "String", "DATABASE_PREFIX", '"jarvis_db"'
-            buildConfigField "String", "API_URL", '"https://jarvis-development.herokuapp.com"'
+            buildConfigField "String", "API_URL", '"https://jarvis-prod.herokuapp.com"'
             buildConfigField "String", "API_PREFFIX", '"/"'
         }
     }
@@ -81,6 +81,7 @@ dependencies {
     implementation appDependencies.appCompat
     implementation appDependencies.constraintLayout
     implementation appDependencies.viewPager
+    implementation appDependencies.viewPagerTransformer
     implementation appDependencies.materialDesign
 
     implementation appDependencies.pageIndicatorView
@@ -88,7 +89,7 @@ dependencies {
     implementation appDependencies.expandedLayout
     implementation appDependencies.transitionsEverywhere
     implementation appDependencies.lottie
-    implementation appDependencies.circleImageView
+    implementation appDependencies.circularImageView
     implementation(appDependencies.glide) {
         exclude group: "com.android.support"
     }

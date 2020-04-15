@@ -2,9 +2,6 @@ package com.bugmakers.jarvistime.presentation.extensions
 
 import android.util.Log
 
-fun log(
-    tag : String = "yourLogTag",
-    message : String = "yourLogMessage"
-) {
+fun Any.log(tag: String = this::class.java.simpleName, message: String) {
     Log.i(tag, message)
 }

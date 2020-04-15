@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <merge
+        tools:cardBackgroundColor="@android:color/holo_blue_light"
+        tools:cardCornerRadius="16dp"
+        tools:cardElevation="5dp"
+        tools:elevation="10dp"
+        tools:layout_gravity="center"
+        tools:layout_height="144dp"
+        tools:layout_width="wrap_content"
+        tools:padding="@dimen/default_margin_large"
+        tools:parentTag="androidx.cardview.widget.CardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/default_margin_large">
+
+            <ImageView
+                android:id="@+id/iconTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_do_not_do"
+                app:layout_constraintEnd_toStartOf="@+id/taskCount"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/taskCount"
+                style="@style/AppTheme.Text.Demi.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/default_margin_large"
+                android:gravity="end"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/iconTask"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/iconTask"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="4 tasks" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/taskTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/taskDescription"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Do not do." />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/taskDescription"
+                style="@style/AppTheme.Text.Demi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Not urgent, Not important" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </merge>
+
+</layout>

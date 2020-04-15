@@ -6,53 +6,51 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:paddingTop="50dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/introductionLabelFirst"
+            style="@style/AppTheme.Text.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/auth_title"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Welcome" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/introductionLabelSecond"
+            style="@style/AppTheme.Text.Medium.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:textColor="#B3B0B3"
+            android:layout_marginTop="9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/introductionLabelFirst"
+            tools:text="This app will help you save your time and be productive." />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/itemLogo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
             android:adjustViewBounds="true"
-            android:maxWidth="350dp"
-            android:maxHeight="350dp"
-            android:paddingStart="35dp"
-            android:paddingEnd="35dp"
-            tools:src="@tools:sample/avatars"
-            app:layout_constraintBottom_toTopOf="@+id/textContainer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/textContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginStart="@dimen/default_margin_large"
+            android:layout_marginEnd="@dimen/default_margin_large"
+            android:layout_marginTop="@dimen/auth_vertical_margin_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/introductionLabelFirst"
-                style="@style/AppTheme.Text.Demi.Large"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
-                tools:text="Title" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/introductionLabelSecond"
-                style="@style/AppTheme.Text.Medium.Medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="9dp"
-                android:textColor="#CC313131"
-                tools:text="Description" />
-
-        </LinearLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/introductionLabelSecond"
+            app:layout_constraintVertical_bias="0.0"
+            tools:paddingEnd="35dp"
+            tools:paddingStart="35dp"
+            tools:src="@drawable/ic_introduction_meditation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
