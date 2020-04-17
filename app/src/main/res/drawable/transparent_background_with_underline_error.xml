@@ -8,7 +8,7 @@
             <solid android:color="@android:color/transparent" />
             <stroke
                 android:width="1dp"
-                android:color="@color/editTextErrorUnderlineColor" />
+                android:color="@color/edit_text_error_underline_color" />
         </shape>
     </item>
 </layer-list>

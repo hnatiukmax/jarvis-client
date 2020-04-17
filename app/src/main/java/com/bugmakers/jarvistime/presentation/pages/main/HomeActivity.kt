@@ -24,9 +24,6 @@ internal class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityView
         supportFragmentManager.commit {
             add(R.id.container, MainBoardFragment())
         }
-        add.setOnClickListener {
-
-        }
     }
 
     override fun HomeActivityViewModel.observeViewModel() {

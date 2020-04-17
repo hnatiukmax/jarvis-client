@@ -2,67 +2,44 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">@color/editTextUnderlineNormal</color>
+    <color name="colorAccent">@color/edit_text_underline_normal</color>
 
     <color name="white">#ffff</color>
     <color name="black">#000000</color>
-    <color name="red">#E6E55757</color>
+    <color name="gray">#A5A7AC</color>
+    <color name="main_green">#64aa89</color>
 
     <!-- Text  -->
-    <color name="textGray">#9B9B9B</color>
-    <color name="textBlackTitle">#010101</color>
-    <color name="textBlack">#313131</color>
-    <color name="textWhite">@color/white</color>
-    <color name="textHint">#C6C6C6</color>
-    <color name="black_with_opacity_80">#CC000000</color>
-    <color name="grey">#80000000</color>
-    <color name="textMain">#A6CA280A</color>
-    <color name="textMainDisabled">@android:color/tertiary_text_dark</color>
+    <color name="text_black">#313131</color>
+    <color name="text_black_75">#CC000000</color>
+    <color name="text_white">@color/white</color>
+    <color name="text_hint_80">#B4B6B6</color>
+    <color name="text_hint">#B4B6B6</color>
+    <color name="text_white_disabled">@android:color/tertiary_text_dark</color>
 
     <!-- Background -->
-    <color name="backgroundWhite">#FCFAFB</color>
-    <color name="backgroundDialog">#FCFAFB</color>
-    <color name="background_divider_color">#FFBBBBBB</color>
-
-    <color name="backgroundProgressStart">#E6646262</color>
-    <color name="backgroundProgressEnd">#B3727272</color>
-
-    <!-- Widget  -->
-    <color name="editTextUnderlineNormal">#EDEDED</color>
-    <color name="editTextErrorUnderlineColor">#F24C4C</color>
-    <color name="editTextUnderlineColor">#E9E3E5</color>
-    <color name="backgroundButtonGoogle">#DE5246</color>
-    <color name="backgroundIconGoogle">#A5241B</color>
-    <color name="backgroundButtonFacebook">#E63560B8</color>
-    <color name="backgroundIconFacebook">#E60F3991</color>
-    <color name="backgroundProgressView">#E6646262</color>
-
-    <color name="mainButton">#66F48282</color>
-    <color name="mainButtonBorder">#B3E55757</color>
-
-    <color name="mainButtonDisabled">#CECDCD</color>
-    <color name="mainButtonBorderDisable">#B3686868</color>
-    <color name="backgroundProgressBlur">#801E1B1B</color>
+    <color name="background_dialog">#FCFAFB</color>
+    <color name="background_progress_start">#E6646262</color>
+    <color name="background_progress_end">#B3727272</color>
+    <color name="background_button_disabled">#CECDCD</color>
+    <color name="background_border_gray">#4DA6A29E</color>
+    <color name="background_edit_text">#ECECEC</color>
+    <color name="background_input_edit_text">#F1F1F1</color>
 
     <color name="backgroundTaskDoFirst">#EE4266</color>
     <color name="backgroundTaskDoLater">#21C9F3</color>
     <color name="backgroundTaskDoByOthers">#F75C03</color>
     <color name="backgroundTaskDoNotDo">#540D6E</color>
 
-    <color name="backgroundTaskDoLater_80">#CC21C9F3</color>
-    <color name="backgroundTaskDoByOthers_80">#CC606060</color>
-    <color name="backgroundTaskDoNotDo_90">#E6540D6E</color>
-
-    <!-- Redesign color  -->
-    <color name="main_button_new">#64aa89</color>
+    <!-- Widget  -->
+    <color name="edit_text_underline_normal">#EDEDED</color>
+    <color name="edit_text_error_underline_color">#F24C4C</color>
     <color name="line_divider">#4DC6C6C6</color>
-    <color name="button_border_gray">#4DA6A29E</color>
-    <color name="page_indicator_selected">@color/main_button_new</color>
+    <color name="page_indicator_selected">@color/main_green</color>
     <color name="page_indicator_unselected">#dddbdd</color>
-    <color name="text_hint">#CC909090</color>
-    <color name="edit_text_background">#ECECEC</color>
-    <color name="ic_gray">#A5A7AC</color>
 
-    <color name="edit_text_hint">#B4B6B6</color>
+    <color name="error_color">@android:color/holo_red_light</color>
+    <color name="info_color">@color/main_green</color>
+    <color name="warning_color">#D6633D</color>
 
 </resources>

@@ -5,17 +5,17 @@ import androidx.fragment.app.commit
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivityAuthorizationBinding
 import com.bugmakers.jarvistime.presentation.base.BaseActivity
+import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType
+import com.bugmakers.jarvistime.presentation.entity.enums.AuthorizationFragmentType
 import com.bugmakers.jarvistime.presentation.extensions.closeWithTransition
 import com.bugmakers.jarvistime.presentation.extensions.kodeinViewModel
 import com.bugmakers.jarvistime.presentation.extensions.makeToolbarAsActionBar
-import com.bugmakers.jarvistime.presentation.pages.authentication.OnAuthorizationChangeListener.AuthorizationFragmentType
+import com.bugmakers.jarvistime.presentation.extensions.setCustomAnimations
 import com.bugmakers.jarvistime.presentation.pages.authentication.login.LoginFragment
 import com.bugmakers.jarvistime.presentation.pages.authentication.register.RegisterFragment
-import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType
-import com.bugmakers.jarvistime.presentation.utils.getAnimResByType
 
 internal class AuthorizationActivity : BaseActivity<ActivityAuthorizationBinding, AuthenticationActivityViewModel>(),
-    OnAuthorizationChangeListener {
+        OnAuthorizationChangeListener {
 
     override val layoutId = R.layout.activity_authorization
     override val viewModel: AuthenticationActivityViewModel by kodeinViewModel()
@@ -36,14 +36,13 @@ internal class AuthorizationActivity : BaseActivity<ActivityAuthorizationBinding
 
     override fun onAuthorizationFragmentChanged(changeTo: AuthorizationFragmentType) {
         supportFragmentManager.commit {
-            val (inAnim, outAnim) = getAnimResByType(AnimationType.SLIDE_LEFT)
-            if (supportFragmentManager.fragments.size > 0) {
-                setCustomAnimations(inAnim, outAnim)
+            val (fragment, transition) = when (changeTo) {
+                AuthorizationFragmentType.LOGIN -> LoginFragment() to AnimationType.SLIDE_RIGHT
+                AuthorizationFragmentType.REGISTER -> RegisterFragment() to AnimationType.SLIDE_LEFT
             }
 
-            val fragment = when (changeTo) {
-                AuthorizationFragmentType.LOGIN -> LoginFragment()
-                AuthorizationFragmentType.REGISTER -> RegisterFragment()
+            if (supportFragmentManager.fragments.size > 0) {
+                setCustomAnimations(transition)
             }
 
             replace(R.id.fragmentContainer, fragment)

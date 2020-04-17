@@ -1,4 +1,4 @@
-package com.bugmakers.jarvistime.presentation.utils
+package com.bugmakers.jarvistime.presentation.utils.base
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

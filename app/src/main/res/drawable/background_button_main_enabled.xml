@@ -4,6 +4,6 @@
 
     <corners android:radius="@dimen/background_border_radius" />
 
-    <solid android:color="@color/main_button_new" />
+    <solid android:color="@color/main_green" />
 
 </shape>

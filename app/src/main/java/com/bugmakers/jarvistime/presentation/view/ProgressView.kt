@@ -65,7 +65,6 @@ internal class ProgressView @JvmOverloads constructor(
             repeatCount = Int.MAX_VALUE
             repeatMode = LottieDrawable.RESTART
             scaleType = ImageView.ScaleType.CENTER_INSIDE
-            loop(true)
             setAnimation(lottieAnimationPath)
         }
 

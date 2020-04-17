@@ -26,7 +26,7 @@
             android:layout_marginStart="@dimen/auth_horizontal_margin"
             android:layout_marginEnd="@dimen/auth_horizontal_margin"
             android:text="@string/login_welcome_sign_in"
-            android:textSize="@dimen/auth_title"
+            android:textSize="@dimen/title_size"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -40,7 +40,7 @@
             android:gravity="center_horizontal"
             android:includeFontPadding="false"
             android:text="@string/login_after_login"
-            android:textColor="@color/edit_text_hint" />
+            android:textColor="@color/text_hint" />
 
         <com.bugmakers.jarvistime.presentation.view.InputEditTextView
             android:id="@+id/email"
@@ -71,7 +71,7 @@
             app:hasError="@{viewModel.passwordHasError}"
             app:iet_hint="@string/login_enter_your_password"
             app:iet_toggleEnabled="true"
-            app:iet_toggleIcon="@drawable/ic_password_toggle"
+            app:iet_toggleIcon="@drawable/ic_password_off"
             app:iet_toggleVisible="true"
             app:iet_validationVisible="true"
             app:text="@={viewModel.password}" />
@@ -97,10 +97,10 @@
             android:layout_marginEnd="@dimen/auth_vertical_margin_medium"
             android:indeterminate="true"
             android:visibility="gone"
-            app:mpb_indeterminateTint="@color/main_button_new"
-            app:mpb_progressBackgroundTint="@color/main_button_new"
+            app:mpb_indeterminateTint="@color/main_green"
+            app:mpb_progressBackgroundTint="@color/main_green"
             app:mpb_progressStyle="horizontal"
-            app:mpb_progressTint="@color/main_button_new"
+            app:mpb_progressTint="@color/main_green"
             app:showProgress="@{viewModel.isProgressVisible}" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -113,7 +113,7 @@
             android:layout_marginEnd="@dimen/auth_horizontal_margin"
             android:clickable="@{!viewModel.isProgressVisible()}"
             android:text="@string/login_no_account"
-            android:textColor="@color/edit_text_hint"
+            android:textColor="@color/text_hint"
             android:textSize="15sp" />
 
     </LinearLayout>

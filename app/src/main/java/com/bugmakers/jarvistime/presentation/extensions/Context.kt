@@ -7,8 +7,10 @@ import android.util.DisplayMetrics
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
+import com.bugmakers.jarvistime.presentation.entity.enums.TypeUIMessage
+import com.bugmakers.jarvistime.presentation.utils.StringResource
+import es.dmoral.toasty.Toasty
 
-// !!! Use toasty library (toast with steroids)
 fun Context.showToast(
     message : String = this::class.java.simpleName + " toastMessage",
     toastLength : Int = Toast.LENGTH_SHORT
@@ -16,15 +18,12 @@ fun Context.showToast(
     Toast.makeText(this, message, toastLength).show()
 }
 
-fun Context.getMetricsRatio(): Double {
-    val windowsManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
-    val displayMetrics = DisplayMetrics()
-
-    with(windowsManager.defaultDisplay) {
-        getMetrics(displayMetrics)
-    }
-
-    return (displayMetrics.heightPixels.toDouble() / displayMetrics.widthPixels)
+internal fun Context.makeToastyMessage(type: TypeUIMessage, content: StringResource) {
+    when (type) {
+        TypeUIMessage.INFORM -> Toasty.info(this, content.message(this), Toast.LENGTH_SHORT, true)
+        TypeUIMessage.WARNING -> Toasty.warning(this, content.message(this), Toast.LENGTH_SHORT, true)
+        TypeUIMessage.ERROR -> Toasty.error(this, content.message(this), Toast.LENGTH_SHORT, true)
+    }.show()
 }
 
 fun Context.lifecycleOwner(): LifecycleOwner? {

@@ -4,6 +4,6 @@
 
     <corners android:radius="5dp" />
 
-    <solid android:color="#F1F1F1" />
+    <solid android:color="@color/background_input_edit_text" />
 
 </shape>

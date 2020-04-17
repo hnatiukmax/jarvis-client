@@ -7,8 +7,8 @@ import com.bugmakers.jarvistime.presentation.entity.AppUIMessage
 import com.bugmakers.jarvistime.presentation.entity.appUIMessage
 import com.bugmakers.jarvistime.presentation.extensions.disable
 import com.bugmakers.jarvistime.presentation.extensions.enable
-import com.bugmakers.jarvistime.presentation.utils.ActionLiveData
-import com.bugmakers.jarvistime.presentation.utils.listeners.doOnError
+import com.bugmakers.jarvistime.presentation.utils.base.ActionLiveData
+import com.bugmakers.jarvistime.presentation.utils.rxjava.doOnError
 import io.reactivex.Completable
 import io.reactivex.disposables.CompositeDisposable
 

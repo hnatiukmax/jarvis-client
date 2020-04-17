@@ -13,8 +13,8 @@ import com.bugmakers.jarvistime.presentation.extensions.setBackgroundTint
 internal fun isEnabled(view: TextView, isEnabled: Boolean?) {
     view.apply {
         val (startColor, endColor) = when (isEnabled) {
-            true -> R.color.mainButtonDisabled to R.color.main_button_new
-            false-> R.color.main_button_new to R.color.mainButtonDisabled
+            true -> R.color.background_button_disabled to R.color.main_green
+            false-> R.color.main_green to R.color.background_button_disabled
             else -> {
                 return@apply
             }

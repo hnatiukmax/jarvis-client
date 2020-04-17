@@ -14,7 +14,7 @@ import com.bugmakers.jarvistime.presentation.extensions.kodeinViewModel
 import com.bugmakers.jarvistime.presentation.pages.authentication.AuthorizationActivity
 import com.bugmakers.jarvistime.presentation.pages.main.HomeActivity
 import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType
-import com.bugmakers.jarvistime.presentation.utils.getViewPagerTransformer
+import com.bugmakers.jarvistime.presentation.utils.ViewPagerTransformer
 import com.bugmakers.jarvistime.presentation.utils.listeners.getOnPageChangedCallback
 import com.bugmakers.jarvistime.presentation.view.introductionslider.IntroductionSliderAdapter
 import com.bugmakers.jarvistime.presentation.view.introductionslider.IntroductionSliderItem
@@ -59,7 +59,7 @@ internal class IntroductionActivity : BaseActivity<ActivityIntroductionBinding, 
             binding.pageIndicator.selectedItem = position % itemCount
         }
 
-        val pageTransformer = getViewPagerTransformer(TransitionEffect.Fade)
+        val pageTransformer = ViewPagerTransformer(TransitionEffect.Fade)
 
         binding.apply {
             viewPager.let {

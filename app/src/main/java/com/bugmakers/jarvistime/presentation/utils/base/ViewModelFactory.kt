@@ -1,4 +1,4 @@
-package com.bugmakers.jarvistime.presentation.utils
+package com.bugmakers.jarvistime.presentation.utils.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

@@ -1,4 +1,4 @@
-package com.bugmakers.jarvistime.presentation.utils.listeners
+package com.bugmakers.jarvistime.presentation.utils.rxjava
 
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.presentation.entity.AppException

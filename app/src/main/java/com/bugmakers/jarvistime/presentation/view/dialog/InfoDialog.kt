@@ -15,7 +15,7 @@ import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.DialogInfoBinding
 import com.bugmakers.jarvistime.presentation.entity.AppUIMessage
 import com.bugmakers.jarvistime.presentation.extensions.string
-import com.bugmakers.jarvistime.presentation.entity.enums.TypeUIMessage
+import com.bugmakers.jarvistime.presentation.utils.getIconResByTypeMessage
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 internal class InfoDialog private constructor() : BottomSheetDialogFragment() {
@@ -53,13 +53,8 @@ internal class InfoDialog private constructor() : BottomSheetDialogFragment() {
         }
 
         fun newInstance(context: Context, appUIMessage: AppUIMessage) = InfoDialog().apply {
-            val iconRes = when (appUIMessage.typeMessage) {
-                TypeUIMessage.ERROR -> R.drawable.ic_warning
-                else -> 0
-            }
-
             arguments = bundleOf(
-                ARG_ICON to iconRes,
+                ARG_ICON to getIconResByTypeMessage(appUIMessage.typeMessage),
                 ARG_DESCRIPTION to appUIMessage.stringResource.message(context)
             )
         }

@@ -1,28 +1,27 @@
 <resources>
     <string name="app_name">jarvis-time</string>
 
-    <!-- Introduction   -->
+    <!-- Error -->
+    <string name="error_internet_connection">Oops, you have problem with network connection</string>
+    <string name="error_something_bad_happen">Oops, Something bad happen</string>
+    <string name="error_client_side_error">Oops, Something bad happen on client side</string>
+    <string name="error_server_side_error">Oops, Something bad happen on server side</string>
+    <string name="error_facebook_auth_failed">Facebook authentication failed</string>
+    <string name="error_google_auth_failed">Google authentication failed</string>
+    <string name="error_no_access">No access</string>
+
+    <!-- Common -->
+    <string name="common_or_divider">OR</string>
+
+    <!-- Introduction -->
     <string name="introduction_google">Google</string>
     <string name="introduction_facebook">Facebook</string>
     <string name="introduction_continue_with_email">Continue with email</string>
     <string name="introduction_login_and_registration_are_free">Login and registration are free</string>
 
     <string name="introduction_label_first_welcome">Welcome</string>
-
     <string name="introduction_label_second_this_app">This app will help you save your time and be productive</string>
-
-    <string name="introduction_or_divider">OR</string>
-    <string name="introduction_label_first_jarvis_time">Jarvis Time</string>
-    <string name="introduction_label_first_do_first">Do first</string>
-    <string name="introduction_label_first_do_later">Do later</string>
-    <string name="introduction_label_first_do_by_others">Do by others</string>
-    <string name="introduction_label_first_do_not_do">Do not do</string>
-
-    <string name="introduction_label_second_jarvis_time">Be more productive and use your time wisely</string>
-    <string name="introduction_label_second_do_first">Try to keep this square empty</string>
-    <string name="introduction_label_second_do_later">They can be of greatest benefit in the future</string>
-    <string name="introduction_label_second_do_by_others">Such cases rarely bring us closer to our goal</string>
-    <string name="introduction_label_second_do_not_do">Often, the implementation of such cases does not bring any practical benefit</string>
+    <string name="introduction_label_second_be_productive">Be more productive and use your time wisely</string>
 
     <!-- Log In  -->
     <string name="login_welcome_sign_in">Welcome sign in</string>
@@ -31,17 +30,7 @@
     <string name="login_enter_your_password">Please, enter your password</string>
     <string name="login_sign_in">Sign in</string>
     <string name="login_no_account">No account? Register.</string>
-
-    <string name="log_in_email">Email</string>
-    <string name="log_in_enter_your_email">Enter your email</string>
-    <string name="log_in_password">Password</string>
-    <string name="log_in_enter_your_password">Enter your password</string>
-    <string name="log_in_">Log In</string>
-    <string name="log_in_no_account">No account? Register.</string>
     <string name="login_success">Authentication success</string>
-
-    <string name="log_in_welcome_back">Welcome Back</string>
-    <string name="log_in_log_in_continue">Log in to continue</string>
 
     <!-- Register   -->
     <string name="register_welcome_sign_up">Welcome sign up</string>
@@ -51,29 +40,10 @@
     <string name="register_sign_up">Sign Up</string>
     <string name="register_already_have_an_account">Already have an account?</string>
 
-    <string name="register_new_account">New account</string>
-    <string name="register_sign_up_to_continue">Sign up to continue</string>
-    <string name="register_email">@string/log_in_email</string>
-    <string name="register_password">@string/log_in_password</string>
-    <string name="register_confirm_your_password">Confirm your password</string>
-    <string name="register_already_have">Already have an account?</string>
-    <string name="register_create_new_account">Create new account</string>
-
-    <!-- Error   -->
-    <string name="error_facebook_auth_failed">Facebook authentication failed</string>
-    <string name="error_google_auth_failed">Google authentication failed</string>
-    <string name="error_no_access">No access</string>
-
     <!-- Home   -->
     <string name="type_task_do_first">DO_FIRST</string>
     <string name="type_task_do_later">DO_LATER</string>
     <string name="type_task_do_by_others">DO_BY_OTHERS</string>
     <string name="type_task_do_not_do">DO_NOT_DO</string>
-
-    <!-- Error   -->
-    <string name="error_internet_connection">Oops, you have problem with network connection</string>
-    <string name="error_something_bad_happen">Oops, Something bad happen</string>
-    <string name="error_client_side_error">Oops, Something bad happen on client side</string>
-    <string name="error_server_side_error">Oops, Something bad happen on server side</string>
 
 </resources>

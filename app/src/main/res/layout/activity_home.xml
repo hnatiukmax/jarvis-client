@@ -15,10 +15,8 @@
         android:layout_height="match_parent">
 
         <androidx.drawerlayout.widget.DrawerLayout
-            android:id="@+id/dl_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/backgroundWhite">
+            android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/root"
@@ -51,31 +49,12 @@
                     android:layout_marginTop="50dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="50dp"
-                    app:layout_constraintBottom_toTopOf="@id/add"
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/pendingTaskCount" />
-
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/add"
-                    android:layout_width="0dp"
-                    android:layout_height="52dp"
-                    android:background="@drawable/background_add_button"
-                    android:padding="@dimen/default_margin_small"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_add"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    tools:ignore="MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <com.bugmakers.jarvistime.presentation.view.side_menu.NavigationMenu
-                android:id="@+id/nv_navigation_menu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="start" />
 
         </androidx.drawerlayout.widget.DrawerLayout>
 

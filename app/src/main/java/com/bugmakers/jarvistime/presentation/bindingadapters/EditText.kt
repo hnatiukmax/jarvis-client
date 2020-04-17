@@ -13,10 +13,10 @@ fun hasError(view: EditText, isError: Boolean?) {
     view.apply {
         val (startColor, endColor) = when (isError) {
             isSaveFromParentEnabled -> return
-            true -> R.color.editTextUnderlineNormal to R.color.editTextErrorUnderlineColor
-            false -> R.color.editTextErrorUnderlineColor to R.color.editTextUnderlineNormal
+            true -> R.color.edit_text_underline_normal to R.color.edit_text_error_underline_color
+            false -> R.color.edit_text_error_underline_color to R.color.edit_text_underline_normal
             null -> {
-                setBackgroundTint(color(R.color.editTextUnderlineNormal))
+                setBackgroundTint(color(R.color.edit_text_underline_normal))
                 isSaveFromParentEnabled = false
                 return
             }

@@ -3,8 +3,8 @@
 
     <array name="introduction_item_logo_ids">
         <item>@drawable/ic_introduction_meditation</item>
-        <item>@drawable/ic_introduction_second</item>
-        <item>@drawable/ic_introduction_third</item>
+        <item>@drawable/ic_introduction_be_productive</item>
+        <item>@drawable/ic_introduction_statistic</item>
     </array>
 
     <array name="introduction_first_label_ids">
@@ -41,12 +41,10 @@
     </array>
 
     <array name="task_type_title">
-        <item>@string/introduction_label_first_do_first</item>
-        <item>@string/introduction_label_first_do_later</item>
-        <item>@string/introduction_label_first_do_by_others</item>
-        <item>@string/introduction_label_first_do_not_do</item>
+        <item>@string/type_task_do_first</item>
+        <item>@string/type_task_do_later</item>
+        <item>@string/type_task_do_by_others</item>
+        <item>@string/type_task_do_not_do</item>
     </array>
-
-
 
 </resources>

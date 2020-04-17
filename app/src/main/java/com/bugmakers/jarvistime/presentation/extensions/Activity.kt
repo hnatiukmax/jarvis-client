@@ -29,17 +29,11 @@ internal fun FragmentActivity.hideSoftKeyboard() {
         ?.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
 }
 
-internal fun AppCompatActivity.showDialog(containerId: Int, dialog: Fragment) {
-    supportFragmentManager.commit {
-        add(containerId, dialog)
-    }
-}
-
 internal fun Activity.goTo(
     to: Class<out Activity>,
     animationType: AnimationType? = null,
     bundle: Bundle? = null,
-    close: Boolean = true
+    close: Boolean = false
 ) {
     val intent = Intent(this, to).apply {
         putExtras(bundle ?: return@apply)

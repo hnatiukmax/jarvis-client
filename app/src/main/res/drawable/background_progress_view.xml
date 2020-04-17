@@ -2,9 +2,9 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient
-        android:endColor="@color/backgroundProgressEnd"
+        android:endColor="@color/background_progress_end"
         android:gradientRadius="1000"
-        android:startColor="@color/backgroundProgressStart"
+        android:startColor="@color/background_progress_start"
         android:type="radial" />
 
 </shape>

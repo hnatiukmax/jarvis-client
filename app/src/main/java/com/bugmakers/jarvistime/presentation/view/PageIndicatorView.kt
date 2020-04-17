@@ -37,7 +37,7 @@ open class PageIndicatorView @JvmOverloads constructor(
 
     private var prevSelected = 0
     private var itemSpacing = dimen(R.dimen.default_margin_small)
-    @ColorRes private var selectedColorRes = R.color.main_button_new
+    @ColorRes private var selectedColorRes = R.color.main_green
     @ColorRes private var unselectedColorRes = R.color.page_indicator_unselected
     @DrawableRes private var unselectedItemRes = R.drawable.page_indicator_unselected
 

@@ -9,7 +9,7 @@ import com.bugmakers.jarvistime.presentation.pages.introduction.IntroductionActi
 import com.bugmakers.jarvistime.presentation.pages.main.HomeActivityViewModel
 import com.bugmakers.jarvistime.presentation.pages.mainboard.MainBoardFragmentViewModel
 import com.bugmakers.jarvistime.presentation.pages.splashscreen.SplashScreenViewModel
-import com.bugmakers.jarvistime.presentation.utils.ViewModelFactory
+import com.bugmakers.jarvistime.presentation.utils.base.ViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.direct
 import org.kodein.di.generic.bind

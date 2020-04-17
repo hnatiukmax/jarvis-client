@@ -26,7 +26,7 @@
             android:layout_marginStart="@dimen/auth_horizontal_margin"
             android:layout_marginEnd="@dimen/auth_horizontal_margin"
             android:text="@string/register_welcome_sign_up"
-            android:textSize="@dimen/auth_title"
+            android:textSize="@dimen/title_size"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -40,7 +40,7 @@
             android:gravity="center_horizontal"
             android:includeFontPadding="false"
             android:text="@string/register_after_registration"
-            android:textColor="@color/edit_text_hint" />
+            android:textColor="@color/text_hint" />
 
         <com.bugmakers.jarvistime.presentation.view.InputEditTextView
             android:id="@+id/email"
@@ -71,7 +71,7 @@
             app:hasError="@{viewModel.passwordHasError}"
             app:iet_hint="@string/register_password_characters"
             app:iet_toggleEnabled="true"
-            app:iet_toggleIcon="@drawable/ic_password_toggle"
+            app:iet_toggleIcon="@drawable/ic_password_off"
             app:iet_toggleVisible="true"
             app:iet_validationVisible="true"
             app:text="@={viewModel.password}" />
@@ -88,7 +88,7 @@
             app:hasError="@{viewModel.confirmPasswordHasError}"
             app:iet_hint="@string/register_confirm_password"
             app:iet_toggleEnabled="true"
-            app:iet_toggleIcon="@drawable/ic_password_toggle"
+            app:iet_toggleIcon="@drawable/ic_password_off"
             app:iet_toggleVisible="true"
             app:iet_validationVisible="true"
             app:text="@{viewModel.confirmPassword}" />
@@ -112,7 +112,7 @@
             android:layout_marginTop="@dimen/default_margin_large"
             android:layout_marginEnd="@dimen/auth_horizontal_margin"
             android:text="@string/register_already_have_an_account"
-            android:textColor="@color/edit_text_hint"
+            android:textColor="@color/text_hint"
             android:textSize="15sp" />
 
     </LinearLayout>

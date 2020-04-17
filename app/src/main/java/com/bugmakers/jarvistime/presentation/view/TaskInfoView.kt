@@ -36,7 +36,7 @@ internal class TaskInfoView @JvmOverloads constructor(
     private fun initView() {
         layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
         setCardBackgroundColor(backgroundRes)
-        radius = dimen(R.dimen.defaultCornerRadius)
+        radius = dimen(R.dimen.default_corner_radius)
         cardElevation = dp2Px(5f)
     }
 

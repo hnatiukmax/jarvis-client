@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import com.bugmakers.jarvistime.R
-import com.bugmakers.jarvistime.presentation.extensions.AND
 import com.bugmakers.jarvistime.presentation.extensions.string
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -36,7 +35,7 @@ internal class GoogleAuthService(
     }
 
     override fun onResult(requestCode: Int, resultCode: Int, data: Any): String {
-        if ((data !is Intent) AND (requestCode != REQUEST_CODE_GOOGLE_SIGN_IN) AND (resultCode != Activity.RESULT_OK)) {
+        if ((data !is Intent) and (requestCode != REQUEST_CODE_GOOGLE_SIGN_IN) and (resultCode != Activity.RESULT_OK)) {
             throw Exception("Cannot auth via Google")
         }
 

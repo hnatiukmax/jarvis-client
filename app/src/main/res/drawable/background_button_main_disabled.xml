@@ -4,6 +4,6 @@
 
     <corners android:radius="@dimen/background_border_radius" />
 
-    <solid android:color="@color/mainButtonDisabled" />
+    <solid android:color="@color/background_button_disabled" />
 
 </shape>

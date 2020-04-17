@@ -7,8 +7,8 @@ import com.bugmakers.jarvistime.presentation.base.BaseViewModel
 import com.bugmakers.jarvistime.presentation.extensions.isRight
 import com.bugmakers.jarvistime.presentation.extensions.plus
 import com.bugmakers.jarvistime.presentation.extensions.valueOrEmpty
-import com.bugmakers.jarvistime.presentation.utils.ActionLiveData
-import com.bugmakers.jarvistime.presentation.utils.listeners.getDisposableCompletableObserver
+import com.bugmakers.jarvistime.presentation.utils.base.ActionLiveData
+import com.bugmakers.jarvistime.presentation.utils.rxjava.*
 
 internal class LoginFragmentViewModel(
     private val authRepository: AuthRepository
@@ -33,9 +33,9 @@ internal class LoginFragmentViewModel(
         compositeDisposable plus authRepository.login(username.valueOrEmpty, password.valueOrEmpty)
             .enableProgress()
             .handleError()
-            .subscribeWith(getDisposableCompletableObserver(
-                doOnComplete = { onLogin.call() }
-            ))
+            .subscribe(
+                onComplete = { onLogin.call() }
+            )
     }
 
     private fun isFieldsValid(): Boolean {

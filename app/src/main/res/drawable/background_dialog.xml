@@ -3,9 +3,9 @@
     android:shape="rectangle">
 
     <corners
-        android:topLeftRadius="@dimen/defaultCornerRadius"
-        android:topRightRadius="@dimen/defaultCornerRadius" />
+        android:topLeftRadius="@dimen/default_corner_radius"
+        android:topRightRadius="@dimen/default_corner_radius" />
 
-    <solid android:color="@color/backgroundDialog" />
+    <solid android:color="@color/background_dialog" />
 
 </shape>

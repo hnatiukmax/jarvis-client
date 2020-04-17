@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/default_margin_large"
                 android:text="@string/introduction_login_and_registration_are_free"
-                android:textColor="@color/textHint"
+                android:textColor="#BFB4B6B6"
                 app:layout_constraintBottom_toTopOf="@id/continueWithEmail"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -105,7 +105,7 @@
                     android:drawableStart="@drawable/ic_google"
                     android:drawablePadding="12dp"
                     android:text="@string/introduction_google"
-                    android:textColor="@color/textHint" />
+                    android:textColor="@color/text_hint" />
 
             </FrameLayout>
 
@@ -128,7 +128,7 @@
                     android:drawableStart="@drawable/ic_facebook"
                     android:drawablePadding="12dp"
                     android:text="@string/introduction_facebook"
-                    android:textColor="@color/textHint" />
+                    android:textColor="@color/text_hint" />
 
             </FrameLayout>
 

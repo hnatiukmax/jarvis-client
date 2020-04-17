@@ -6,9 +6,9 @@ import com.bugmakers.jarvistime.presentation.base.BaseFragment
 import com.bugmakers.jarvistime.presentation.extensions.goTo
 import com.bugmakers.jarvistime.presentation.extensions.kodeinViewModel
 import com.bugmakers.jarvistime.presentation.pages.authentication.OnAuthorizationChangeListener
-import com.bugmakers.jarvistime.presentation.pages.authentication.OnAuthorizationChangeListener.AuthorizationFragmentType.REGISTER
 import com.bugmakers.jarvistime.presentation.pages.main.HomeActivity
 import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType
+import com.bugmakers.jarvistime.presentation.entity.enums.AuthorizationFragmentType.*
 
 internal class LoginFragment : BaseFragment<FragmentLoginBinding, LoginFragmentViewModel>() {
 
