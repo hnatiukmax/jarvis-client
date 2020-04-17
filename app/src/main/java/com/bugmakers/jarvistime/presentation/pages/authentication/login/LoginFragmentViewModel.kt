@@ -28,10 +28,9 @@ internal class LoginFragmentViewModel(
             return
         }
 
-        onCloseKeyboard.call()
-
         compositeDisposable plus authRepository.login(username.valueOrEmpty, password.valueOrEmpty)
             .enableProgress()
+            .onCloseKeyboard()
             .handleError()
             .subscribe(
                 onComplete = { onLogin.call() }

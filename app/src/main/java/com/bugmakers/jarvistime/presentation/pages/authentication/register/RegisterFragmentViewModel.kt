@@ -11,6 +11,7 @@ import com.bugmakers.jarvistime.presentation.utils.base.ActionLiveData
 import com.bugmakers.jarvistime.presentation.utils.ifPasswordCheckValid
 import com.bugmakers.jarvistime.presentation.utils.ifUsernameCheckValid
 import com.bugmakers.jarvistime.presentation.utils.rxjava.getDisposableCompletableObserver
+import com.bugmakers.jarvistime.presentation.utils.rxjava.subscribe
 
 internal class RegisterFragmentViewModel(
     private val authRepository: AuthRepository
@@ -32,14 +33,13 @@ internal class RegisterFragmentViewModel(
             return
         }
 
-        onCloseKeyboard.call()
-
         compositeDisposable plus authRepository.register(username.valueOrEmpty, password.valueOrEmpty)
             .enableProgress()
+            .onCloseKeyboard()
             .handleError()
-            .subscribeWith(getDisposableCompletableObserver(
-                    doOnComplete = { onRegister.call() }
-            ))
+            .subscribe(
+                onComplete = { onRegister.call() }
+            )
     }
 
     private fun isFieldsValid(): Boolean {
