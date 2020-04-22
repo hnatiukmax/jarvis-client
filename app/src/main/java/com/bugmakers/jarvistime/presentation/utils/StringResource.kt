@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import com.bugmakers.jarvistime.presentation.extensions.string
 
 internal class StringResource(
-    private val messageText: String? = null,
+    val messageText: String? = null,
     @StringRes private val messageResId: Int? = null
 ) {
     fun message(context: Context) = messageText ?: {

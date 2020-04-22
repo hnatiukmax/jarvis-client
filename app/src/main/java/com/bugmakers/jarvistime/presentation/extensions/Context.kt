@@ -3,8 +3,6 @@ package com.bugmakers.jarvistime.presentation.extensions
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.res.Resources
-import android.util.DisplayMetrics
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import com.bugmakers.jarvistime.presentation.entity.enums.TypeUIMessage
@@ -18,7 +16,7 @@ fun Context.showToast(
     Toast.makeText(this, message, toastLength).show()
 }
 
-internal fun Context.makeToastyMessage(type: TypeUIMessage, content: StringResource) {
+internal fun Context.showToasty(type: TypeUIMessage, content: StringResource) {
     when (type) {
         TypeUIMessage.INFORM -> Toasty.info(this, content.message(this), Toast.LENGTH_SHORT, true)
         TypeUIMessage.WARNING -> Toasty.warning(this, content.message(this), Toast.LENGTH_SHORT, true)

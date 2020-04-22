@@ -2,6 +2,7 @@ package com.bugmakers.jarvistime.presentation.application
 
 import android.app.Application
 import com.bugmakers.jarvistime.presentation.di.ServiceLocator
+import com.chibatching.kotpref.Kotpref
 import es.dmoral.toasty.Toasty
 import io.realm.Realm
 import io.realm.RealmConfiguration
@@ -18,6 +19,8 @@ class JarvisApplication : Application(), KodeinAware {
         super.onCreate()
         serviceLocator = ServiceLocator(kodein, this)
         serviceLocator.setInjection()
+
+        Kotpref.init(applicationContext)
 
         realmInit()
         configToasty()

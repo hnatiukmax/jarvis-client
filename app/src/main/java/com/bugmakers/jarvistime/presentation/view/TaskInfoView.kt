@@ -53,7 +53,7 @@ internal class TaskInfoView @JvmOverloads constructor(
     }
 
     fun setBackground(backgroundRes: Int) {
-        setCardBackgroundColor(backgroundRes)
+        setCardBackgroundColor(color(backgroundRes))
     }
 
     fun setTaskIcon(@DrawableRes iconRes: Int) {
@@ -69,6 +69,6 @@ internal class TaskInfoView @JvmOverloads constructor(
     }
 
     fun setTaskDescription(description: String) {
-        binding.taskTitle.text = description
+        binding.taskDescription.text = description
     }
 }

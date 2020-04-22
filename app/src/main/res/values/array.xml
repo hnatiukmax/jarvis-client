@@ -20,10 +20,10 @@
     </array>
 
     <array name="task_type_background">
-        <item>@color/backgroundTaskDoFirst</item>
-        <item>@color/backgroundTaskDoLater</item>
-        <item>@color/backgroundTaskDoByOthers</item>
-        <item>@color/backgroundTaskDoNotDo</item>
+        <item>@color/background_task_do_first</item>
+        <item>@color/background_task_do_later</item>
+        <item>@color/background_task_do_by_others</item>
+        <item>@color/background_task_do_not_do</item>
     </array>
 
     <array name="task_type_background_drawable">

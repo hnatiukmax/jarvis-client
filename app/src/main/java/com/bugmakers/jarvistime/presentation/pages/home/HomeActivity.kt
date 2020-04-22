@@ -1,4 +1,4 @@
-package com.bugmakers.jarvistime.presentation.pages.main
+package com.bugmakers.jarvistime.presentation.pages.home
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivityHomeBinding
 import com.bugmakers.jarvistime.presentation.base.BaseActivity
 import com.bugmakers.jarvistime.presentation.extensions.kodeinViewModel
-import com.bugmakers.jarvistime.presentation.pages.mainboard.MainBoardFragment
+import com.bugmakers.jarvistime.presentation.pages.home.inbox.InboxFragment
 
 internal class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityViewModel>() {
 
@@ -22,7 +22,7 @@ internal class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityView
         viewModel = this@HomeActivity.viewModel
 
         supportFragmentManager.commit {
-            add(R.id.container, MainBoardFragment())
+            add(R.id.container, InboxFragment.newInstance())
         }
     }
 

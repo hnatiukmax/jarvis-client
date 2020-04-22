@@ -10,11 +10,11 @@ import com.bugmakers.jarvistime.domain.entity.AuthorizationType
 import com.bugmakers.jarvistime.presentation.base.BaseViewModel
 import com.bugmakers.jarvistime.presentation.entity.AppUIMessage
 import com.bugmakers.jarvistime.presentation.extensions.plus
-import com.bugmakers.jarvistime.presentation.utils.base.ActionLiveData
+import com.bugmakers.jarvistime.presentation.common.base.ActionLiveData
 import com.bugmakers.jarvistime.presentation.entity.enums.TypeUIMessage.ERROR
 import com.bugmakers.jarvistime.presentation.entity.enums.TypeUIMessage.INFORM
 import com.bugmakers.jarvistime.presentation.utils.asStringResources
-import com.bugmakers.jarvistime.presentation.utils.rxjava.getDisposableCompletableObserver
+import com.bugmakers.jarvistime.presentation.common.rxjava.subscribe
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookAuthorizationException
@@ -102,12 +102,12 @@ internal class IntroductionActivityViewModel(
         compositeDisposable plus authRepository.registerViaSocial(authType, token)
             .enableProgress()
             .handleError()
-            .subscribeWith(getDisposableCompletableObserver(
-                    doOnComplete = {
-                        onShowMessage.value = AppUIMessage(INFORM, R.string.login_success.asStringResources)
-                        onRegisterCompleted.call()
-                    }
-            ))
+            .subscribe(
+                onSuccess = {
+                    onShowMessage.value = AppUIMessage(INFORM, R.string.login_success.asStringResources)
+                    onRegisterCompleted.call()
+                }
+            )
     }
 
     fun onSocialAuthenticationClick(type: AuthorizationType) {

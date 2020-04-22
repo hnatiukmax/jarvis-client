@@ -6,9 +6,10 @@ import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ActivityAuthorizationBinding
 import com.bugmakers.jarvistime.presentation.base.BaseActivity
 import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType
+import com.bugmakers.jarvistime.presentation.entity.enums.AuthorizationFragmentType.*
 import com.bugmakers.jarvistime.presentation.entity.enums.AuthorizationFragmentType
+import com.bugmakers.jarvistime.presentation.extensions.*
 import com.bugmakers.jarvistime.presentation.extensions.closeWithTransition
-import com.bugmakers.jarvistime.presentation.extensions.kodeinViewModel
 import com.bugmakers.jarvistime.presentation.extensions.makeToolbarAsActionBar
 import com.bugmakers.jarvistime.presentation.extensions.setCustomAnimations
 import com.bugmakers.jarvistime.presentation.pages.authentication.login.LoginFragment
@@ -31,21 +32,39 @@ internal class AuthorizationActivity : BaseActivity<ActivityAuthorizationBinding
             }
         }
 
-        onAuthorizationFragmentChanged(AuthorizationFragmentType.LOGIN)
+        onAuthorizationFragmentChanged(LOGIN)
     }
 
     override fun onAuthorizationFragmentChanged(changeTo: AuthorizationFragmentType) {
         supportFragmentManager.commit {
-            val (fragment, transition) = when (changeTo) {
-                AuthorizationFragmentType.LOGIN -> LoginFragment() to AnimationType.SLIDE_RIGHT
-                AuthorizationFragmentType.REGISTER -> RegisterFragment() to AnimationType.SLIDE_LEFT
+            val transition = when (changeTo) {
+                LOGIN -> AnimationType.SLIDE_RIGHT
+                REGISTER -> AnimationType.SLIDE_LEFT
             }
 
             if (supportFragmentManager.fragments.size > 0) {
                 setCustomAnimations(transition)
             }
 
-            replace(R.id.fragmentContainer, fragment)
+            val fragment = when (fragmentCount) {
+                in 0..1 -> when (changeTo) {
+                    LOGIN -> LoginFragment()
+                    REGISTER -> RegisterFragment()
+                }
+                else -> null
+            }
+
+            when (supportFragmentManager.fragments.size) {
+                0 -> add(R.id.fragmentContainer, fragment ?: return@commit)
+                1 -> {
+                    hide(getFragment(0) ?: return@commit)
+                    add(R.id.fragmentContainer, fragment ?: return@commit)
+                }
+                else -> {
+                    show(getFragment(0) ?: return@commit)
+                    hide(getFragment(1) ?: return@commit)
+                }
+            }
         }
     }
 }

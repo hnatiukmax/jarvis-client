@@ -23,21 +23,21 @@
                 android:id="@+id/iconTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_do_not_do"
                 app:layout_constraintEnd_toStartOf="@+id/taskCount"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_do_not_do" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/taskCount"
-                style="@style/AppTheme.Text.Demi.Small"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/default_margin_large"
+                android:layout_marginStart="@dimen/default_margin_small"
                 android:gravity="end"
                 android:textColor="@color/white"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@id/iconTask"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -49,9 +49,10 @@
                 android:id="@+id/taskTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
                 android:gravity="start"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/taskDescription"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,13 +61,13 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/taskDescription"
-                style="@style/AppTheme.Text.Demi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="Not urgent, Not important" />
 

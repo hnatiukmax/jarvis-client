@@ -26,10 +26,10 @@
     <color name="background_edit_text">#ECECEC</color>
     <color name="background_input_edit_text">#F1F1F1</color>
 
-    <color name="backgroundTaskDoFirst">#EE4266</color>
-    <color name="backgroundTaskDoLater">#21C9F3</color>
-    <color name="backgroundTaskDoByOthers">#F75C03</color>
-    <color name="backgroundTaskDoNotDo">#540D6E</color>
+    <color name="background_task_do_first">#88C781</color>
+    <color name="background_task_do_later">#88C781</color>
+    <color name="background_task_do_by_others">#F39696</color>
+    <color name="background_task_do_not_do">#F39696</color>
 
     <!-- Widget  -->
     <color name="edit_text_underline_normal">#EDEDED</color>

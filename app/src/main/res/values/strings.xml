@@ -3,15 +3,17 @@
 
     <!-- Error -->
     <string name="error_internet_connection">Oops, you have problem with network connection</string>
-    <string name="error_something_bad_happen">Oops, Something bad happen</string>
-    <string name="error_client_side_error">Oops, Something bad happen on client side</string>
-    <string name="error_server_side_error">Oops, Something bad happen on server side</string>
+    <string name="error_something_bad_happen">Oops, something bad happen</string>
+    <string name="error_client_side_error">Oops, something bad happen on client side</string>
+    <string name="error_server_side_error">Oops, something bad happen on server side</string>
     <string name="error_facebook_auth_failed">Facebook authentication failed</string>
     <string name="error_google_auth_failed">Google authentication failed</string>
     <string name="error_no_access">No access</string>
+    <string name="error_token_is_required">Token is required</string>
 
     <!-- Common -->
     <string name="common_or_divider">OR</string>
+    <string name="task_info">%1$d / %2$d tasks</string>
 
     <!-- Introduction -->
     <string name="introduction_google">Google</string>
@@ -45,5 +47,9 @@
     <string name="type_task_do_later">DO_LATER</string>
     <string name="type_task_do_by_others">DO_BY_OTHERS</string>
     <string name="type_task_do_not_do">DO_NOT_DO</string>
+
+    <!-- Inbox   -->
+    <string name="inbox_pending_tasks">You have %1$s pending tasks</string>
+    <string name="inbox_hi_username">Hi, %1$s</string>
 
 </resources>

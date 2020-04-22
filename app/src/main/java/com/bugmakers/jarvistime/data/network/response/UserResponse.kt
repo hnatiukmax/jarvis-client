@@ -8,7 +8,5 @@ internal data class UserResponse(
     @Json(name = "id")
     val id : Int,
     @Json(name = "username")
-    val username : String,
-    @Json(name = "password")
-    val password : String
+    val username : String
 )

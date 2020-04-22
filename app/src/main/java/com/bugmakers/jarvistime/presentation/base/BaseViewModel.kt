@@ -7,8 +7,8 @@ import com.bugmakers.jarvistime.presentation.entity.AppUIMessage
 import com.bugmakers.jarvistime.presentation.entity.appUIMessage
 import com.bugmakers.jarvistime.presentation.extensions.disable
 import com.bugmakers.jarvistime.presentation.extensions.enable
-import com.bugmakers.jarvistime.presentation.utils.base.ActionLiveData
-import com.bugmakers.jarvistime.presentation.utils.rxjava.doOnError
+import com.bugmakers.jarvistime.presentation.common.base.ActionLiveData
+import com.bugmakers.jarvistime.presentation.common.rxjava.doOnError
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable
@@ -34,50 +34,57 @@ internal abstract class BaseViewModel : ViewModel() {
         super.onCleared()
     }
 
-    protected fun Completable.enableProgress(): Completable {
+    protected fun Completable.enableProgress() = this.apply {
         return doOnSubscribe { isProgressVisible.enable() }
             .doFinally { isProgressVisible.disable() }
     }
 
-    protected fun <T> Observable<T>.enableProgress(): Observable<T> {
+    protected fun <T> Observable<T>.enableProgress() = this.apply {
         return doOnSubscribe { isProgressVisible.enable() }
             .doFinally { isProgressVisible.disable() }
     }
 
-    protected fun <T> Single<T>.enableProgress(): Single<T> {
+    protected fun <T> Single<T>.enableProgress() = this.apply {
         return doOnSubscribe { isProgressVisible.enable() }
             .doFinally { isProgressVisible.disable() }
     }
 
-    protected fun <T> Flowable<T>.enableProgress(): Flowable<T> {
+    protected fun <T> Flowable<T>.enableProgress() = this.apply {
         return doOnSubscribe { isProgressVisible.enable() }
             .doFinally { isProgressVisible.disable() }
     }
 
-    protected fun Completable.handleError() : Completable {
+    protected fun Completable.handleError() = this.apply {
         return doOnError { error: AppException ->
             onShowMessage.value = error.appUIMessage
         }
     }
 
-    protected fun Completable.onCloseKeyboard() : Completable {
-        onCloseKeyboard.call()
-        return this
+    protected fun <T> Observable<T>.handleError() = this.apply {
+        return doOnError { error: AppException ->
+            onShowMessage.value = error.appUIMessage
+        }
     }
 
-    protected fun <T> Observable<T>.onCloseKeyboard() : Observable<T> {
-        onCloseKeyboard.call()
-        return this
+    protected fun <T> Single<T>.handleError() = this.apply {
+         return doOnError { error: AppException ->
+            onShowMessage.value = error.appUIMessage
+        }
     }
 
-
-    protected fun <T> Single<T>.onCloseKeyboard() : Single<T> {
+    protected fun Completable.onCloseKeyboard()  = this.apply {
         onCloseKeyboard.call()
-        return this
     }
 
-    protected fun <T> Flowable<T>.onCloseKeyboard() : Flowable<T> {
+    protected fun <T> Observable<T>.onCloseKeyboard()  = this.apply {
         onCloseKeyboard.call()
-        return this
+    }
+
+    protected fun <T> Single<T>.onCloseKeyboard() = this.apply {
+        onCloseKeyboard.call()
+    }
+
+    protected fun <T> Flowable<T>.onCloseKeyboard() = this.apply {
+        onCloseKeyboard.call()
     }
 }

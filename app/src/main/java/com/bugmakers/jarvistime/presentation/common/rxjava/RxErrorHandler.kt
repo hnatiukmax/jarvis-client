@@ -1,4 +1,4 @@
-package com.bugmakers.jarvistime.presentation.utils.rxjava
+package com.bugmakers.jarvistime.presentation.common.rxjava
 
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.presentation.entity.AppException
@@ -12,38 +12,6 @@ import org.json.JSONObject
 import retrofit2.HttpException
 import java.net.ConnectException
 import java.net.UnknownHostException
-
-internal fun getCompletableObserver(
-    doOnComplete: (() -> Unit)? = null,
-    doOnSubscribe: ((d: Disposable) -> Unit)? = null,
-    doOnError: ((e: Throwable) -> Unit)? = null
-) = object : CompletableObserver {
-    override fun onComplete() {
-        doOnComplete?.invoke()
-    }
-
-    override fun onSubscribe(d: Disposable) {
-        doOnSubscribe?.invoke(d)
-    }
-
-    override fun onError(e: Throwable) {
-        doOnError?.invoke(e)
-    }
-
-}
-
-internal fun getDisposableCompletableObserver(
-    doOnComplete: (() -> Unit)? = null,
-    doOnError: ((e: Throwable) -> Unit)? = null
-) = object : DisposableCompletableObserver() {
-    override fun onComplete() {
-        doOnComplete?.invoke()
-    }
-
-    override fun onError(e: Throwable) {
-        doOnError?.invoke(e)
-    }
-}
 
 internal inline fun Completable.doOnError(
     crossinline doOnError: (error: AppException) -> Unit

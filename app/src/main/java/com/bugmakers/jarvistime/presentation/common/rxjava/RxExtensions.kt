@@ -1,8 +1,10 @@
-package com.bugmakers.jarvistime.presentation.utils.rxjava
+package com.bugmakers.jarvistime.presentation.common.rxjava
 
 import io.reactivex.Completable
+import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Action
 import io.reactivex.functions.Consumer
@@ -10,6 +12,7 @@ import io.reactivex.internal.functions.Functions
 import io.reactivex.internal.observers.CallbackCompletableObserver
 import io.reactivex.internal.observers.ConsumerSingleObserver
 import io.reactivex.internal.observers.LambdaObserver
+import io.reactivex.schedulers.Schedulers
 
 internal fun Completable.subscribe(
     onComplete: () -> Unit,
@@ -50,4 +53,24 @@ internal fun <T> Single<T>.subscribe(
 
     subscribe(callback)
     return callback
+}
+
+internal fun Completable.multiThreads() = this.apply {
+    return subscribeOn(Schedulers.io())
+    .observeOn(AndroidSchedulers.mainThread())
+}
+
+internal fun <T> Single<T>.multiThreads() = this.apply {
+    return subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+}
+
+internal fun <T> Observable<T>.multiThreads() = this.apply {
+    return subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+}
+
+internal fun <T> Flowable<T>.multiThreads() = this.apply {
+    return subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
 }

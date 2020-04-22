@@ -13,6 +13,7 @@ import androidx.fragment.app.commit
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType
 import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType.*
+import java.lang.Exception
 
 internal fun AppCompatActivity.makeToolbarAsActionBar(toolbar: Toolbar) {
     setSupportActionBar(toolbar)
@@ -22,6 +23,17 @@ internal fun AppCompatActivity.makeToolbarAsActionBar(toolbar: Toolbar) {
 internal fun AppCompatActivity.enableBackButton() {
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
     supportActionBar?.setDisplayShowHomeEnabled(true)
+}
+
+internal val AppCompatActivity.fragmentCount: Int
+    get() = supportFragmentManager.fragments.size
+
+internal fun AppCompatActivity.getFragment(index: Int): Fragment? {
+    return try {
+        supportFragmentManager.fragments[index]
+    } catch (ex: Exception) {
+        null
+    }
 }
 
 internal fun FragmentActivity.hideSoftKeyboard() {

@@ -4,8 +4,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 
-internal data class TaskTypeCardInfo(
-    val taskTypeInfo : String,
+internal data class TaskTypeResInfo(
     @DrawableRes @ColorRes val backgroundRes: Int,
     @DrawableRes var iconRes: Int = 0,
     @StringRes var titleRes: Int = 0,

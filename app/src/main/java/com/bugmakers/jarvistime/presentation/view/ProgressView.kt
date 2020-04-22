@@ -84,7 +84,8 @@ internal class ProgressView @JvmOverloads constructor(
     }
 
     fun hideProgress() {
-        progressView.pauseAnimation()
-        visibleWithAnimation(false, APPEARING_DURATION)
+//        visibleWithAnimation(false, APPEARING_DURATION) {
+//            //progressView.pauseAnimation()
+//        }
     }
 }

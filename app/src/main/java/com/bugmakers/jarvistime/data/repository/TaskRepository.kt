@@ -3,27 +3,31 @@ package com.bugmakers.jarvistime.data.repository
 import com.bugmakers.jarvistime.data.network.mapper.mapToTaskDataSource
 import com.bugmakers.jarvistime.data.network.requests.TaskRequestBody
 import com.bugmakers.jarvistime.data.network.response.TaskResponse
-import com.bugmakers.jarvistime.data.network.response.TaskTypeInfoResponse
-import com.bugmakers.jarvistime.data.service.TaskService
+import com.bugmakers.jarvistime.data.network.response.toTaskTypeInfo
+import com.bugmakers.jarvistime.data.service.TaskApiService
 import com.bugmakers.jarvistime.domain.entity.Task
 import com.bugmakers.jarvistime.domain.entity.TaskType
+import com.bugmakers.jarvistime.domain.entity.TaskTypeInfo
+import com.bugmakers.jarvistime.presentation.common.rxjava.multiThreads
 import io.reactivex.Completable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 internal class TaskRepository(
-    private val taskService: TaskService
+    private val taskApiService: TaskApiService
 ) {
 
-    fun tasksTypeInfo(): Single<List<TaskTypeInfoResponse>> {
-        return taskService.tasksTypeInfo()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+    fun tasksTypeInfo(): Single<List<TaskTypeInfo>> {
+        return taskApiService.tasksTypeInfo()
+            .multiThreads()
+            .map { it.map {
+                list -> list.toTaskTypeInfo()
+            }}
     }
 
     fun tasks(): Single<List<TaskResponse>> {
-        return taskService.tasks()
+        return taskApiService.tasks()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
@@ -35,19 +39,19 @@ internal class TaskRepository(
             isCompleted = false
         )
 
-        return taskService.createTask(taskRequestBody)
+        return taskApiService.createTask(taskRequestBody)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun createTask(task : Task): Completable {
-        return taskService.updateTask(task.id, task.mapToTaskDataSource())
+        return taskApiService.updateTask(task.id, task.mapToTaskDataSource())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 
     fun deleteTask(requiredTaskId: Int) : Completable {
-        return taskService.deleteTask(requiredTaskId)
+        return taskApiService.deleteTask(requiredTaskId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }

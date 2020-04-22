@@ -22,6 +22,15 @@ val View.activity: Activity?
         return null
     }
 
+internal inline fun View.postDelayed(
+    delayInMillis: Long,
+    crossinline action: (View) -> Unit
+): Runnable {
+    val runnable = Runnable { action(this) }
+    postDelayed(runnable, delayInMillis)
+    return runnable
+}
+
 internal fun View.visible() {
     this.visibility = View.VISIBLE
 }
@@ -37,6 +46,9 @@ internal fun View.invisible() {
 internal fun View.color(@ColorRes colorResId: Int) = context.color(colorResId)
 
 internal fun View.string(@StringRes stringResId: Int) = context.string(stringResId)
+
+internal fun View.string(@StringRes stringResId: Int, vararg params: Any) =
+    context.string(stringResId, *params)
 
 internal fun View.integer(@IntegerRes integerRes: Int) = context.integer(integerRes)
 

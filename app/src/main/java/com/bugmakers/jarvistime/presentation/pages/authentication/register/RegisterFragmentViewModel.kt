@@ -7,11 +7,10 @@ import com.bugmakers.jarvistime.presentation.base.BaseViewModel
 import com.bugmakers.jarvistime.presentation.extensions.isRight
 import com.bugmakers.jarvistime.presentation.extensions.plus
 import com.bugmakers.jarvistime.presentation.extensions.valueOrEmpty
-import com.bugmakers.jarvistime.presentation.utils.base.ActionLiveData
+import com.bugmakers.jarvistime.presentation.common.base.ActionLiveData
 import com.bugmakers.jarvistime.presentation.utils.ifPasswordCheckValid
 import com.bugmakers.jarvistime.presentation.utils.ifUsernameCheckValid
-import com.bugmakers.jarvistime.presentation.utils.rxjava.getDisposableCompletableObserver
-import com.bugmakers.jarvistime.presentation.utils.rxjava.subscribe
+import com.bugmakers.jarvistime.presentation.common.rxjava.subscribe
 
 internal class RegisterFragmentViewModel(
     private val authRepository: AuthRepository
@@ -38,7 +37,7 @@ internal class RegisterFragmentViewModel(
             .onCloseKeyboard()
             .handleError()
             .subscribe(
-                onComplete = { onRegister.call() }
+                onSuccess = { onRegister.call() }
             )
     }
 

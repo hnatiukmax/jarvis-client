@@ -13,6 +13,9 @@ fun Context.color(@ColorRes colorRes : Int) =
 fun Context.string(@StringRes stringRes : Int) =
     getString(stringRes)
 
+fun Context.string(@StringRes stringRes : Int, vararg params: Any) =
+    getString(stringRes, *params)
+
 fun Context.integer(@IntegerRes integerRes : Int) =
     resources.getInteger(integerRes)
 

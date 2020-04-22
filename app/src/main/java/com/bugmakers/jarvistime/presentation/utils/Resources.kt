@@ -1,6 +1,10 @@
 package com.bugmakers.jarvistime.presentation.utils
 
+import android.annotation.SuppressLint
+import android.content.Context
 import com.bugmakers.jarvistime.R
+import com.bugmakers.jarvistime.domain.entity.TaskType
+import com.bugmakers.jarvistime.presentation.entity.TaskTypeResInfo
 import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType
 import com.bugmakers.jarvistime.presentation.entity.enums.AnimationType.*
 import com.bugmakers.jarvistime.presentation.entity.enums.TypeUIMessage
@@ -20,3 +24,17 @@ internal fun getIconResByTypeMessage(typeMessage: TypeUIMessage) =
         TypeUIMessage.WARNING -> R.drawable.ic_warning
         TypeUIMessage.INFORM -> R.drawable.ic_info
     }
+
+@SuppressLint("Recycle")
+internal fun getTaskResInfoByType(context: Context, taskType: TaskType) : TaskTypeResInfo {
+    val iconIds = context.resources.obtainTypedArray(R.array.task_type_icon)
+    val backgroundIds = context.resources.obtainTypedArray(R.array.task_type_background)
+    val titleIds = context.resources.obtainTypedArray(R.array.task_type_title)
+
+    return TaskTypeResInfo(
+        backgroundRes = backgroundIds.getResourceId(taskType.ordinal, 0),
+        iconRes = iconIds.getResourceId(taskType.ordinal, 0),
+        titleRes = titleIds.getResourceId(taskType.ordinal, 0),
+        description = titleIds.getResourceId(taskType.ordinal, 0)
+    )
+}

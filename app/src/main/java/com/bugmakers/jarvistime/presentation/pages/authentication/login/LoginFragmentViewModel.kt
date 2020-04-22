@@ -7,8 +7,8 @@ import com.bugmakers.jarvistime.presentation.base.BaseViewModel
 import com.bugmakers.jarvistime.presentation.extensions.isRight
 import com.bugmakers.jarvistime.presentation.extensions.plus
 import com.bugmakers.jarvistime.presentation.extensions.valueOrEmpty
-import com.bugmakers.jarvistime.presentation.utils.base.ActionLiveData
-import com.bugmakers.jarvistime.presentation.utils.rxjava.*
+import com.bugmakers.jarvistime.presentation.common.base.ActionLiveData
+import com.bugmakers.jarvistime.presentation.common.rxjava.*
 
 internal class LoginFragmentViewModel(
     private val authRepository: AuthRepository
@@ -33,7 +33,7 @@ internal class LoginFragmentViewModel(
             .onCloseKeyboard()
             .handleError()
             .subscribe(
-                onComplete = { onLogin.call() }
+                onSuccess = { onLogin.call() }
             )
     }
 

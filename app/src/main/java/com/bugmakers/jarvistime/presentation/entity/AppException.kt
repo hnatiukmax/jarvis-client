@@ -3,14 +3,15 @@ package com.bugmakers.jarvistime.presentation.entity
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.presentation.utils.StringResource
 import com.bugmakers.jarvistime.presentation.entity.enums.TypeUIMessage
+import java.lang.Exception
 
 internal val AppException.appUIMessage: AppUIMessage
     get() = AppUIMessage(TypeUIMessage.ERROR, errorMessage)
 
 internal sealed class AppException(
     val errorMessage: StringResource,
-    val throwable: Throwable? = null
-) {
+    throwable: Throwable? = null
+) : Exception(errorMessage.messageText, throwable){
 
     class NetworkException(
         errorMessage: StringResource = StringResource(messageResId = R.string.error_internet_connection),

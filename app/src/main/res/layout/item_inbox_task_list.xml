@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.bugmakers.jarvistime.presentation.view.TaskInfoView
+        android:id="@+id/task"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="?attr/selectableItemBackgroundRounded"
+        android:layout_margin="@dimen/default_margin_small"
+        tools:layout_height="144dp"
+        tools:layout_width="144dp" />
+
+</layout>
