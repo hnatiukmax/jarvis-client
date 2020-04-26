@@ -49,13 +49,14 @@
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/name"
+                    style="@style/AppTheme.Text.Medium"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/default_margin_large"
                     android:text="@{String.format(@string/inbox_hi_username, viewModel.userInfo.username)}"
                     android:textColor="@color/black"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
+                    android:textSize="21sp"
                     app:layout_constraintBottom_toTopOf="@id/pendingTaskCount"
                     app:layout_constraintStart_toEndOf="@+id/avatar"
                     app:layout_constraintTop_toTopOf="@+id/avatar"

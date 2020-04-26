@@ -50,15 +50,15 @@ internal abstract class BaseActivity<V : ViewDataBinding, VM : BaseViewModel> : 
 
     protected open fun VM.observeViewModel() {}
 
-    override fun onDestroy() {
-        viewModel.onCleared()
-        super.onDestroy()
-    }
-
     protected fun <P> LiveData<P>.observe(observerBody: (P) -> Unit) {
         this.observe(this@BaseActivity, Observer {
             observerBody(it)
         })
+    }
+
+    override fun onDestroy() {
+        viewModel.onCleared()
+        super.onDestroy()
     }
 
     fun setProgressVisibility(isVisible: Boolean) {

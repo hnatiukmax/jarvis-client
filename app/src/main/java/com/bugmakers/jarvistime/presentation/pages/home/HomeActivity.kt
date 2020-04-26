@@ -56,6 +56,6 @@ internal class HomeActivity : BaseActivity<ActivityHomeBinding, HomeActivityView
     override fun onMenuItemClick(page: NavigationPage) {
         val titleRes = provideTitleResByNavigationPage(page)
 
-        binding.mainToolbar.setTitleText(titleRes)
+        binding.toolbar.setTitleText(titleRes)
     }
 }

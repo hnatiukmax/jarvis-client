@@ -57,12 +57,12 @@ internal class AuthorizationActivity : BaseActivity<ActivityAuthorizationBinding
             when (supportFragmentManager.fragments.size) {
                 0 -> add(R.id.fragmentContainer, fragment ?: return@commit)
                 1 -> {
-                    hide(getFragment(0) ?: return@commit)
+                    hide(fragmentAt(0) ?: return@commit)
                     add(R.id.fragmentContainer, fragment ?: return@commit)
                 }
                 else -> {
-                    show(getFragment(0) ?: return@commit)
-                    hide(getFragment(1) ?: return@commit)
+                    show(fragmentAt(0) ?: return@commit)
+                    hide(fragmentAt(1) ?: return@commit)
                 }
             }
         }

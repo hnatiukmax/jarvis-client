@@ -28,12 +28,16 @@ internal fun AppCompatActivity.enableBackButton() {
 internal val AppCompatActivity.fragmentCount: Int
     get() = supportFragmentManager.fragments.size
 
-internal fun AppCompatActivity.getFragment(index: Int): Fragment? {
+internal fun AppCompatActivity.fragmentAt(index: Int): Fragment? {
     return try {
         supportFragmentManager.fragments[index]
     } catch (ex: Exception) {
         null
     }
+}
+
+internal fun FragmentActivity.fragmentByTag(tag: String) : Fragment? {
+    return supportFragmentManager.findFragmentByTag(tag)
 }
 
 internal fun FragmentActivity.hideSoftKeyboard() {

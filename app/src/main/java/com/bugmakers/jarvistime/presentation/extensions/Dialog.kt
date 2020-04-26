@@ -11,3 +11,7 @@ internal fun BottomSheetDialogFragment.show(activity: FragmentActivity, tag: Str
 internal fun BottomSheetDialogFragment.show(fragment: Fragment, tag: String? = null) {
     show(fragment.parentFragmentManager, tag)
 }
+
+internal fun BottomSheetDialogFragment.showNow(fragment: Fragment, tag: String? = null) {
+    showNow(fragment.parentFragmentManager, tag)
+}
