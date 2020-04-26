@@ -26,10 +26,16 @@
     <color name="background_edit_text">#ECECEC</color>
     <color name="background_input_edit_text">#F1F1F1</color>
 
-    <color name="background_task_do_first">#88C781</color>
-    <color name="background_task_do_later">#88C781</color>
-    <color name="background_task_do_by_others">#F39696</color>
-    <color name="background_task_do_not_do">#F39696</color>
+    <!-- Task Colors   -->
+    <color name="background_task_do_first">#E66074F9</color>
+    <color name="background_task_do_later">#E42B6A</color>
+    <color name="background_task_do_by_others">#5ABB56</color>
+    <color name="background_task_do_not_do">#BC79C3</color>
+
+    <color name="background_task_do_first_light">#DBDDEF</color>
+    <color name="background_task_do_later_light">#E8C7D2</color>
+    <color name="background_task_do_by_others_light">#D4F1D3</color>
+    <color name="background_task_do_not_do_light">#F9DFFB</color>
 
     <!-- Widget  -->
     <color name="edit_text_underline_normal">#EDEDED</color>

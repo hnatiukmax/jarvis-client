@@ -102,7 +102,7 @@ internal class TaskTypeCard @JvmOverloads constructor(
             title.setText(titleRes)
             title.visibleWithAnimation(true,
                 TEXT_APPEARING_DURATION
-            )
+            ).start()
             onAnimationEnd?.invoke()
         }.start()
     }

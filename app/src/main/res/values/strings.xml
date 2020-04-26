@@ -13,7 +13,11 @@
 
     <!-- Common -->
     <string name="common_or_divider">OR</string>
-    <string name="task_info">%1$d / %2$d tasks</string>
+    <string name="task_count_info">%1$d / %2$d</string>
+
+    <!-- Bottom menu   -->
+    <string name="bottom_menu_home">Home</string>
+    <string name="bottom_menu_settings">Settings</string>
 
     <!-- Introduction -->
     <string name="introduction_google">Google</string>
@@ -43,10 +47,20 @@
     <string name="register_already_have_an_account">Already have an account?</string>
 
     <!-- Home   -->
-    <string name="type_task_do_first">DO_FIRST</string>
-    <string name="type_task_do_later">DO_LATER</string>
-    <string name="type_task_do_by_others">DO_BY_OTHERS</string>
-    <string name="type_task_do_not_do">DO_NOT_DO</string>
+    <string name="home_title_inbox">Inbox</string>
+    <string name="home_title_profile">Profile</string>
+    <string name="home_title_settings">Settings</string>
+
+    <!-- Tasks  -->
+    <string name="type_task_do_first">Do first</string>
+    <string name="type_task_do_later">Do later</string>
+    <string name="type_task_do_by_others">Delegate</string>
+    <string name="type_task_do_not_do">Do not do</string>
+
+    <string name="type_task_description_do_first">Urgent, important</string>
+    <string name="type_task_description_do_later">Not urgent, important</string>
+    <string name="type_task_description_do_by_others">Urgent, not important</string>
+    <string name="type_task_description_do_not_do">Not urgent, not important</string>
 
     <!-- Inbox   -->
     <string name="inbox_pending_tasks">You have %1$s pending tasks</string>

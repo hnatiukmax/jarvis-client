@@ -99,8 +99,9 @@
     </style>
 
     <style name="AppTheme.ToolbarTitle">
+        <item name="android:textAppearance">@style/AppTheme.Text.Demi</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <!--  Button  -->

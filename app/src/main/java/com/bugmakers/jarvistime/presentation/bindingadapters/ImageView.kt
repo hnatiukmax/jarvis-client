@@ -1,37 +1,42 @@
 package com.bugmakers.jarvistime.presentation.bindingadapters
 
-import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.presentation.extensions.*
+import com.bugmakers.jarvistime.presentation.utils.animate
 import com.bumptech.glide.Glide
 
-
-@SuppressLint("CheckResult")
 @BindingAdapter("imageSource")
 internal fun loadImageSource(view: ImageView, imageSource: String?) {
-    if (imageSource == null) {
-        return
+    if (imageSource.isNullOrEmpty()) {
+        view.setImageResource(R.drawable.ic_avatar_placeholder)
     }
 
-    Glide.with(view)
+    Glide.with(view.context)
         .load(imageSource)
-        .centerCrop()
         .dontAnimate()
         .doOnResourceReady(getOnResourceReady(view))
-        .submit()
+        .into(view)
 }
 
 private fun getOnResourceReady(view: View): OnResourceReady<Drawable> = { resource, _, _, _, _ ->
-    view.postDelayed(0L) { it ->
+    view.postDelayed<ImageView>(0L) {
         val duration = it.integer(android.R.integer.config_shortAnimTime).toLong()
 
-        it.alphaWithAnimation(1f..0f, duration) {
-            (it as? ImageView)?.setImageDrawable(resource)
-            it.alphaWithAnimation(0f..1f, duration).start()
-        }.start()
+        if (it.drawable == resource) {
+            return@postDelayed
+        }
+
+        animate(it)
+            .alpha(0f, duration)
+            .doOnEnd {
+                it.setImageDrawable(resource)
+                it.alphaWithAnimation(0f..1f, duration).start()
+            }
+            .start()
     }
     true
 }

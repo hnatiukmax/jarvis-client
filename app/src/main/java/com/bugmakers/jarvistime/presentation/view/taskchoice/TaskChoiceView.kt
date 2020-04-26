@@ -42,7 +42,7 @@ internal class TaskChoiceView @JvmOverloads constructor(
 
     @SuppressLint("Recycle")
     private fun initView() {
-        val backgroundResArray = resources.obtainTypedArray(R.array.task_type_background)
+        val backgroundResArray = resources.obtainTypedArray(R.array.task_type_primary)
         val iconResArray = resources.obtainTypedArray(R.array.task_type_icon)
         val descriptionResArray = resources.obtainTypedArray(R.array.task_type_title)
 

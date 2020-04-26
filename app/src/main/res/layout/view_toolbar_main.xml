@@ -28,6 +28,7 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/title"
+                style="@style/AppTheme.ToolbarTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
@@ -36,7 +37,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Work List"
-                tools:textAppearance="@style/AppTheme.ToolbarTitle"
                 tools:visibility="visible" />
 
             <androidx.appcompat.widget.AppCompatImageView

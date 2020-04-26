@@ -13,38 +13,44 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.drawerlayout.widget.DrawerLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/root"
+            <com.bugmakers.jarvistime.presentation.view.MainToolbar
+                android:id="@+id/main_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="?actionBarSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:mtb_leftActionIcon="@null"
+                app:mtb_titleTextAppearance="@style/AppTheme.Text.Medium" />
 
-                <com.bugmakers.jarvistime.presentation.view.MainToolbar
-                    android:id="@+id/main_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?actionBarSize"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:mtb_leftActionIcon="@drawable/ic_menu_red_24dp" />
+            <FrameLayout
+                android:id="@+id/container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
 
-                <FrameLayout
-                    android:id="@+id/container"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
+            <com.bugmakers.jarvistime.presentation.view.BottomNavigationMenu
+                android:id="@+id/navigationMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:layout_marginStart="@dimen/default_margin_large"
+                android:layout_marginEnd="@dimen/default_margin_large"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.drawerlayout.widget.DrawerLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.bugmakers.jarvistime.presentation.view.ProgressView
             android:layout_width="match_parent"

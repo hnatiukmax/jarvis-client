@@ -15,7 +15,7 @@ import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.DialogInfoBinding
 import com.bugmakers.jarvistime.presentation.entity.AppUIMessage
 import com.bugmakers.jarvistime.presentation.extensions.string
-import com.bugmakers.jarvistime.presentation.utils.getIconResByTypeMessage
+import com.bugmakers.jarvistime.presentation.utils.provideIconResByTypeMessage
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 internal class InfoDialog private constructor() : BottomSheetDialogFragment() {
@@ -54,7 +54,7 @@ internal class InfoDialog private constructor() : BottomSheetDialogFragment() {
 
         fun newInstance(context: Context, appUIMessage: AppUIMessage) = InfoDialog().apply {
             arguments = bundleOf(
-                ARG_ICON to getIconResByTypeMessage(appUIMessage.typeMessage),
+                ARG_ICON to provideIconResByTypeMessage(appUIMessage.typeMessage),
                 ARG_DESCRIPTION to appUIMessage.stringResource.message(context)
             )
         }
@@ -104,7 +104,7 @@ internal class InfoDialog private constructor() : BottomSheetDialogFragment() {
         onDismissListener?.onDismissListener(tag)
     }
 
-    class Builder(private val context: Context) {
+    inner class Builder(private val context: Context) {
         @DrawableRes
         private var iconRes: Int? = null
         private var title: String? = null

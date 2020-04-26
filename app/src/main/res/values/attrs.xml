@@ -34,5 +34,12 @@
         <attr name="android:imeOptions" />
         <attr name="android:inputType" />
     </declare-styleable>
+    
+    <declare-styleable name="InboxTaskProgress">
+        <attr name="itp_allCount" format="integer" />
+        <attr name="itp_selectedCount" format="integer" />
+        <attr name="itp_allColor" format="reference" />
+        <attr name="itp_selectedColor" format="reference" />
+    </declare-styleable>
 
 </resources>

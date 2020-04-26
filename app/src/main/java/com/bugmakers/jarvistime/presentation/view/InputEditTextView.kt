@@ -14,7 +14,6 @@ import androidx.databinding.DataBindingUtil
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ViewInputEditTextBinding
 import com.bugmakers.jarvistime.presentation.extensions.*
-import com.bugmakers.jarvistime.presentation.extensions.setBackgroundTint
 import com.bugmakers.jarvistime.presentation.extensions.showKeyboard
 import com.bugmakers.jarvistime.presentation.extensions.visibleWithAnimation
 import com.bugmakers.jarvistime.presentation.utils.listeners.SimpleTextWatcher
@@ -80,7 +79,7 @@ internal class InputEditTextView @JvmOverloads constructor(
                 if (isError) {
                     setBackgroundResource(R.drawable.ic_error_mark)
                 }
-                visibleWithAnimation(true, ALPHA_DURATION)
+                visibleWithAnimation(true, ALPHA_DURATION).start()
             }
         }
 

@@ -3,14 +3,16 @@ package com.bugmakers.jarvistime.presentation.view
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.cardview.widget.CardView
 import androidx.core.view.children
 import androidx.databinding.DataBindingUtil
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ViewTaskInfoBinding
+import com.bugmakers.jarvistime.presentation.extensions.*
 import com.bugmakers.jarvistime.presentation.extensions.color
-import com.bugmakers.jarvistime.presentation.extensions.dimen
 import com.bugmakers.jarvistime.presentation.extensions.dp2Px
 
 internal class TaskInfoView @JvmOverloads constructor(
@@ -19,12 +21,52 @@ internal class TaskInfoView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : CardView(context, attrs, defStyleAttr) {
 
-    var backgroundRes = color(android.R.color.holo_blue_bright)
+    @DrawableRes
+    var taskIcon = 0
         set(value) {
-            setCardBackgroundColor(value)
+            field = value
+            binding.iconTask.setBackgroundResource(value)
+        }
+
+    @StringRes
+    var taskTitleRes = 0
+        set(value) {
+            field = value
+            binding.taskTitle.text = string(value)
+        }
+
+    @StringRes
+    var taskDescription = 0
+        set(value) {
+            field = value
+            binding.taskDescription.text = string(value)
+        }
+
+    @ColorRes
+    var primaryColorRes = R.color.background_task_do_first
+        set(value) {
+            field = value
+            updateColor()
+        }
+
+    @ColorRes
+    var primaryColorLightRes = R.color.background_task_do_first_light
+        set(value) {
+            field = value
+            updateColor()
+        }
+
+    var taskProgressCount = 0 to 0
+        set(value) {
+            field = value
+            updateTaskProgress()
         }
 
     private val binding: ViewTaskInfoBinding
+
+    companion object {
+        private const val CORNER_RADIUS = 6
+    }
 
     init {
         val layoutInflater = LayoutInflater.from(context)
@@ -35,8 +77,7 @@ internal class TaskInfoView @JvmOverloads constructor(
 
     private fun initView() {
         layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        setCardBackgroundColor(backgroundRes)
-        radius = dimen(R.dimen.default_corner_radius)
+        radius = dp2Px(CORNER_RADIUS).toFloat()
         cardElevation = dp2Px(5f)
     }
 
@@ -52,23 +93,29 @@ internal class TaskInfoView @JvmOverloads constructor(
         }
     }
 
-    fun setBackground(backgroundRes: Int) {
-        setCardBackgroundColor(color(backgroundRes))
+    private fun updateColor() {
+        binding.apply {
+            taskProgress.apply {
+                allColor = primaryColorLightRes
+                selectedColor = primaryColorRes
+            }
+
+            taskTitle.setTextColor(color(primaryColorRes))
+            taskDescription.setTextColor(color(primaryColorRes))
+            iconTask.setBackgroundTint(color(primaryColorRes))
+            topBackground.setBackgroundColor(color(primaryColorLightRes))
+            taskCount.setTextColor(color(primaryColorRes))
+        }
     }
 
-    fun setTaskIcon(@DrawableRes iconRes: Int) {
-        binding.iconTask.setImageResource(iconRes)
-    }
+    private fun updateTaskProgress() {
+        binding.apply {
+            taskProgress.apply {
+                allCount = taskProgressCount.second
+                selectedCount = taskProgressCount.first
+            }
 
-    fun setTaskCount(count: String) {
-        binding.taskCount.text = count
-    }
-
-    fun setTaskTitle(title: String) {
-        binding.taskTitle.text = title
-    }
-
-    fun setTaskDescription(description: String) {
-        binding.taskDescription.text = description
+            taskCount.text = string(R.string.task_count_info, taskProgressCount.first, taskProgressCount.second)
+        }
     }
 }

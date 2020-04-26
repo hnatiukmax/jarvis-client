@@ -3,13 +3,20 @@
 package com.bugmakers.jarvistime.presentation.extensions
 
 import android.animation.Animator
+import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.animation.doOnEnd
 import com.bugmakers.jarvistime.presentation.entity.enums.Margin
 import com.bugmakers.jarvistime.presentation.entity.enums.SizeType
+import com.bugmakers.jarvistime.presentation.view.BottomNavigationMenu
 import net.cachapa.expandablelayout.util.FastOutSlowInInterpolator
 
 /**
@@ -24,7 +31,7 @@ import net.cachapa.expandablelayout.util.FastOutSlowInInterpolator
 internal fun View.animateSize(
     sizeType: SizeType,
     range: IntRange,
-    duration: Long,
+    duration: Long = 0,
     onAnimationEnd: (() -> Unit)? = null
 ): ValueAnimator {
 
@@ -146,8 +153,9 @@ internal fun <T : Comparable<T>> animateByUpdateListener(
         this.interpolator = FastOutSlowInInterpolator()
 
         addUpdateListener {
-            updateListener.invoke(it.animatedValue as? T
-                ?: throw IllegalArgumentException("ClosedRange is not range of Int or Float")
+            updateListener.invoke(
+                it.animatedValue as? T
+                    ?: throw IllegalArgumentException("ClosedRange is not range of Int or Float")
             )
         }
 
@@ -166,7 +174,7 @@ internal fun View.visibleWithAnimation(
     visible: Boolean,
     duration: Long,
     onAnimationEnd: (() -> Unit)? = null
-) {
+) : Animator {
     val alphaRange = if (visible) 0f..1f else 1f..0f
 
     if (visible) {
@@ -174,15 +182,15 @@ internal fun View.visibleWithAnimation(
         visibility = View.VISIBLE
     } else {
         alpha = 1f
-        visibility = View.VISIBLE
+        visibility = View.GONE
     }
 
-    alphaWithAnimation(alphaRange, duration) {
+    return alphaWithAnimation(alphaRange, duration) {
         if (!visible) {
             visibility = View.GONE
         }
         onAnimationEnd?.invoke()
-    }.start()
+    }
 }
 
 /**
@@ -201,20 +209,32 @@ internal fun View.alphaWithAnimation(
     doOnEnd { onAnimationEnd?.invoke() }
 }
 
-/**
- * TODO
- *
- * @param animators
- * @param onAnimationEnd
- */
-fun startAnimations(vararg animators: Animator, onAnimationEnd: (() -> Unit)? = null) {
-    animators.maxBy {
-        it.duration
-    }?.let {
-        it.doOnEnd { onAnimationEnd?.invoke() }
-    }
+fun ImageView.setDrawableTintWithAnimation(
+    startColor: Int,
+    endColor: Int,
+    duration: Long,
+    onAnimationEnd: (() -> Unit)? = null
+): Animator {
+    val argbEvaluator = ArgbEvaluator()
 
-    animators.forEach {
-        it.start()
+    return animateByUpdateListener(0.0f..1.0f, duration, onAnimationEnd) {
+        val color = argbEvaluator.evaluate(it, color(startColor), color(endColor)) as Int
+
+        setBackgroundTint(color)
+    }
+}
+
+fun TextView.setDrawableTintWithAnimation(
+    startColor: Int,
+    endColor: Int,
+    duration: Long,
+    onAnimationEnd: (() -> Unit)? = null
+): Animator {
+    val argbEvaluator = ArgbEvaluator()
+
+    return animateByUpdateListener(0.0f..1.0f, duration, onAnimationEnd) {
+        val color = argbEvaluator.evaluate(it, color(startColor), color(endColor)) as Int
+
+        setCompoundDrawableTint(color)
     }
 }

@@ -19,18 +19,18 @@
         <item>@string/introduction_label_second_this_app</item>
     </array>
 
-    <array name="task_type_background">
+    <array name="task_type_primary">
         <item>@color/background_task_do_first</item>
         <item>@color/background_task_do_later</item>
         <item>@color/background_task_do_by_others</item>
         <item>@color/background_task_do_not_do</item>
     </array>
 
-    <array name="task_type_background_drawable">
-        <item>@drawable/background_task_do_first</item>
-        <item>@drawable/background_task_do_later</item>
-        <item>@drawable/background_task_do_by_others</item>
-        <item>@drawable/background_task_do_not_do</item>
+    <array name="task_type_primary_light">
+        <item>@color/background_task_do_first_light</item>
+        <item>@color/background_task_do_later_light</item>
+        <item>@color/background_task_do_by_others_light</item>
+        <item>@color/background_task_do_not_do_light</item>
     </array>
 
     <array name="task_type_icon">
@@ -45,6 +45,13 @@
         <item>@string/type_task_do_later</item>
         <item>@string/type_task_do_by_others</item>
         <item>@string/type_task_do_not_do</item>
+    </array>
+
+    <array name="task_type_description">
+        <item>@string/type_task_description_do_first</item>
+        <item>@string/type_task_description_do_later</item>
+        <item>@string/type_task_description_do_by_others</item>
+        <item>@string/type_task_description_do_not_do</item>
     </array>
 
 </resources>

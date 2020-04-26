@@ -3,8 +3,7 @@ package com.bugmakers.jarvistime.presentation.common.adapterdelegate
 import com.bugmakers.jarvistime.R
 import com.bugmakers.jarvistime.databinding.ItemInboxTaskListBinding
 import com.bugmakers.jarvistime.domain.entity.TaskTypeInfo
-import com.bugmakers.jarvistime.presentation.extensions.string
-import com.bugmakers.jarvistime.presentation.utils.getTaskResInfoByType
+import com.bugmakers.jarvistime.presentation.utils.provideTaskResInfoByType
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegate
 
 internal fun taskInfoDelegateAdapter(
@@ -17,14 +16,15 @@ internal fun taskInfoDelegateAdapter(
 
     bind {
         binding.task.apply {
-            getTaskResInfoByType(context, item.type).apply {
-                setBackground(backgroundRes)
-                setTaskIcon(iconRes)
-                setTaskTitle(string(titleRes))
-                setTaskDescription(string(titleRes))
+            provideTaskResInfoByType(context, item.type).let {
+                taskIcon = it.iconRes
+                taskTitleRes = it.titleRes
+                taskDescription = it.descriptionRes
+                primaryColorRes = it.primaryColor
+                primaryColorLightRes = it.primaryColorLight
             }
 
-            setTaskCount(string(R.string.task_info, item.completedCount, item.allCount))
+            taskProgressCount = item.completedCount to item.allCount
         }
     }
 }

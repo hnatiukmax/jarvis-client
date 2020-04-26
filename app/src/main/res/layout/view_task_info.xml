@@ -4,72 +4,112 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <merge
-        tools:cardBackgroundColor="@android:color/holo_blue_light"
-        tools:cardCornerRadius="16dp"
+        tools:cardCornerRadius="5dp"
         tools:cardElevation="5dp"
         tools:elevation="10dp"
         tools:layout_gravity="center"
-        tools:layout_height="144dp"
-        tools:layout_width="wrap_content"
-        tools:padding="@dimen/default_margin_large"
+        tools:layout_height="165dp"
+        tools:layout_width="165dp"
         tools:parentTag="androidx.cardview.widget.CardView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/default_margin_large">
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/topBackground"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/default_margin_small"
+                app:layout_constraintBottom_toTopOf="@+id/taskProgress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@drawable/background_task_do_first" />
 
             <ImageView
                 android:id="@+id/iconTask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@+id/taskCount"
-                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription"
-                tools:src="@drawable/ic_do_not_do" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/taskCount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/default_margin_small"
-                android:gravity="end"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/iconTask"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/iconTask"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="4 tasks" />
+                tools:src="@drawable/ic_do_first"
+                tools:tint="@color/background_task_do_first" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/taskTitle"
-                android:layout_width="0dp"
+                style="@style/AppTheme.Text.Medium"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:gravity="start"
-                android:textColor="@color/white"
-                android:textSize="14sp"
+                android:layout_marginStart="@dimen/default_margin_small"
+                android:textColor="@color/background_task_do_first"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/taskDescription"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/taskDescription"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="Do not do." />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/taskDescription"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/default_margin_small"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="@dimen/default_margin_small"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/background_task_do_first"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/topBackground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="Not urgent, Not important" />
+
+            <com.bugmakers.jarvistime.presentation.view.InboxTaskProgress
+                android:id="@+id/taskProgress"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="@dimen/default_margin_small"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="@dimen/default_margin_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:itp_allColor="@color/background_task_do_first_light"
+                tools:itp_allCount="10"
+                tools:itp_selectedColor="@color/background_task_do_first"
+                tools:itp_selectedCount="4" />
+
+            <FrameLayout
+                android:id="@+id/countFrame"
+                android:layout_width="45dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/background_task_count"
+                app:layout_constraintBottom_toBottomOf="@+id/iconTask"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iconTask" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/taskCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/background_task_do_first"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/countFrame"
+                app:layout_constraintEnd_toEndOf="@+id/countFrame"
+                app:layout_constraintStart_toStartOf="@+id/countFrame"
+                app:layout_constraintTop_toTopOf="@+id/countFrame"
+                tools:ignore="SmallSp"
+                tools:text="4 / 10" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

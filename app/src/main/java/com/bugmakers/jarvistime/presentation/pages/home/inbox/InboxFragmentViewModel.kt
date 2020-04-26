@@ -1,7 +1,6 @@
 package com.bugmakers.jarvistime.presentation.pages.home.inbox
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations.map
 import com.bugmakers.jarvistime.data.repository.TaskRepository
 import com.bugmakers.jarvistime.data.repository.UserRepository
@@ -10,23 +9,16 @@ import com.bugmakers.jarvistime.domain.entity.UserInfo
 import com.bugmakers.jarvistime.presentation.base.BaseViewModel
 import com.bugmakers.jarvistime.presentation.common.rxjava.subscribe
 import com.bugmakers.jarvistime.presentation.extensions.plus
+import com.bugmakers.jarvistime.presentation.utils.delegatedLiveData
 
 internal class InboxFragmentViewModel(
     private val userRepository: UserRepository,
     private val taskRepository: TaskRepository
 ) : BaseViewModel() {
 
-    val userInfo by lazy {
-        MutableLiveData<UserInfo>().also {
-            loadUserInfo()
-        }
-    }
+    val userInfo by delegatedLiveData<UserInfo>(::loadUserInfo)
 
-    val taskTypeInfoList by lazy {
-        MutableLiveData<List<TaskTypeInfo>>().also {
-            loadTaskTypeInfoList()
-        }
-    }
+    val taskTypeInfoList by delegatedLiveData<List<TaskTypeInfo>>(::loadTaskTypeInfoList)
 
     val allCount: LiveData<Int> = map(taskTypeInfoList) {
         it.sumBy { task -> task.allCount }
@@ -49,5 +41,4 @@ internal class InboxFragmentViewModel(
                 onSuccess = { taskTypeInfoList.value = it }
             )
     }
-
 }
